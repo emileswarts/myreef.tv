@@ -10,7 +10,7 @@ gem 'rails', '3.2.8'
 
 gem 'mongo_mapper'
 
-groub :development, :test do
+group :development, :test do
 	gem 'rspec-rails'
 end
 
