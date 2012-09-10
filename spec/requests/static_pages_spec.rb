@@ -8,9 +8,9 @@ describe "Static Pages" do
 		  visit '/static_pages/home'
 		  page.should have_selector('h1', :text => 'Myreef.tv')
 	  end
-    it "Should have the content 'Sign in'" do
+    it "Should have the title 'Home'" do
 		visit '/static_pages/home'
-		page.should have_content('Sign in')
+		page.should have_selector('title', :text => 'Myreef.tv')
     end
   end
 
