@@ -1,0 +1,9 @@
+!!! Strict
+%html
+  %head
+  %body
+    .content
+      %h1#header Hello, world
+      %ul
+        %a{:href => "/signin"} Sign in
+        #maincontent= yield
