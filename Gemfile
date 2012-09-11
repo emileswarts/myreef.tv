@@ -13,6 +13,7 @@ gem 'mongo_mapper'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'database_cleaner'
+    gem 'guard-rspec'
 end
 
 # Gems used only for assets and not required
@@ -47,6 +48,8 @@ gem 'haml'
 #
  group :test do
 	 gem 'capybara'
+	 gem 'rb-fsevent'
+	 gem 'growl'
  end
 
  group :production do
