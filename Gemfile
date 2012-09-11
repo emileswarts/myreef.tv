@@ -14,6 +14,9 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'database_cleaner'
     gem 'guard-rspec'
+    gem 'guard-spork'
+    gem 'spork'
+
 end
 
 # Gems used only for assets and not required
