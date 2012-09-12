@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 require 'rubygems'
 require 'mongo'
-require 'mongoid'
 source 'http://gemcutter.org'
 gem 'rails', '3.2.8'
 
@@ -17,6 +16,7 @@ group :development, :test do
     gem 'guard-rspec'
     gem 'guard-spork'
     gem 'spork'
+    gem 'mongoid-rspec'
 
 end
 

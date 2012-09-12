@@ -52,7 +52,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-#require 'rubygems'
+require 'rubygems'
+require 'mongo'
 #require 'spork'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
