@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 require 'rubygems'
 require 'mongo'
+require 'mongoid'
 source 'http://gemcutter.org'
 gem 'rails', '3.2.8'
 
