@@ -19,7 +19,14 @@ Modules
 1.  Gallery
 ------------
 
-Images will be searchable, and can contain meta-data.  An image can be tagged and rated to make searching easier.  The maximum size of a raw image upload will be 3mb.  There may be hosting implications and I will need to keep an eye on this.  Images will open in a popup lightbox when clicked on, which will display the information of the image next to it.
+Users will upload images to their account once registered.  Images will be searchable, and can contain meta-data.  An image can be tagged and rated to make searching easier.  The maximum size of a raw image upload will be 3mb.  There may be hosting implications and I will need to keep an eye on this.  Images will open in a popup lightbox when clicked on, which will display the information of the image next to it.  In the initial listing, images will display in a grid and will be divided into pages.  20 per page.
+
+Meta data fields will include
+Caption (optional)
+Description (optional)
+
+
+
 
 2.  Webuser
 ------------
