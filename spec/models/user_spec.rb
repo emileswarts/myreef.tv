@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-	puts "ni"
+	pending "test"
 end
 # == Schema Information
 #
