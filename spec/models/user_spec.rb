@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe User do
-	pending "test"
+	before { @user = User.new(name: "Example user", email: "user@example.com") }
+	subject{@user}
+
+	it { should respond_to(:name)}
+	it { should respond_to(:email)}
 end
 # == Schema Information
 #
