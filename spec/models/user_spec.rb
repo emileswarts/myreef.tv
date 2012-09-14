@@ -27,6 +27,20 @@ describe User do
 		before { @user.name = "a" * 51 }
 		it { should_not be_valid }
 	end
+
+	describe "When an email format is invalid" do
+		it "should be invalid" do
+			addresses = %w[user@foo,com user_at_foo.org example.user.foo.org foo@bar.baz.com ]
+			addresses.each do |invalid_address|
+				@user.email = invalid_address 
+				@user.email {should_not be_valid}
+			end
+
+		end
+		it "should be valid" do
+
+		end
+	end
 	
 end
 # == Schema Information
