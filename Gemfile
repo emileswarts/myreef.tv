@@ -31,8 +31,8 @@ gem 'jquery-rails', '2.0.0'
 group :test do
   gem 'rspec-rails', '2.10.0'
   gem 'capybara', '1.1.2'
-  gem 'rb-inotify', '0.8.8'
-  gem 'libnotify', '0.5.9'
+  #gem 'rb-inotify', '0.8.8'
+  #gem 'libnotify', '0.5.9'
   gem 'spork', '0.9.0'
   gem 'factory_girl_rails', '1.4.0'
   gem 'cucumber-rails', '1.2.1', require: false
