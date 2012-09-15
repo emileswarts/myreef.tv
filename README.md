@@ -1,6 +1,8 @@
 myreef.tv 
 =============
 
+This is my project to learn rails, and to produce a fully functional website by the end of it.
+
 Background
 -----------
 
