@@ -1,17 +1,13 @@
 Myreef::Application.routes.draw do
 
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy ]
 
   get "users/new"
-
-root to: 'static_pages#home'
-
-
+  root to: 'static_pages#home'
   get "static_pages/home"
-
   get "users/new"
-
   get "static_pages/help"
-
   get "static_pages/about"
 
   match '/help',    to: 'static_pages#help'
@@ -32,8 +28,6 @@ root to: 'static_pages#home'
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy ]
 
   # Sample resource route with options:
   #   resources :products do
