@@ -17,7 +17,9 @@ root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'  
-  match '/signup', to: 'users#new'  
+  match '/signup',  to: 'users#new'  
+  match '/signin',  to: 'sessions#new'  
+  match '/signout', to: 'sessions#destroy', via: :delete  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -31,6 +33,7 @@ root to: 'static_pages#home'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users
+  resources :sessions, only: [:new, :create, :destroy ]
 
   # Sample resource route with options:
   #   resources :products do
