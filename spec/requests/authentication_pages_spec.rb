@@ -44,6 +44,11 @@ describe "Authentication" do
 	  end
 
 	  describe "in the Users controller" do
+		  describe "visiting the users index" do
+			  before { visit users_path }
+			  it { should have_selector('title', text: 'Sign in') }
+		  end
+
 		  describe "visiting the edit page" do
 			  before do
 				  visit edit_user_path(user)
@@ -83,9 +88,11 @@ describe "Authentication" do
 		  end
 
 		  it { should have_selector('title', text: user.name) }
+		  it { should have_link('Users', href: users_path) }
 		  it { should have_link('Profile', href: user_path(user)) }
 		  it { should have_link('Settings', href: edit_user_path(user)) }
 		  it { should have_link('Sign out', href: signout_path) }
+
 		  it { should_not have_link('Sign in', href: signin_path) }
 
 		  describe "followed by signout" do
