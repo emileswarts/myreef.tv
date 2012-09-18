@@ -5,7 +5,7 @@ describe "Authentication" do
   subject{page}
 
   describe "authorization" do
-	  let (:user) { FactoryGirl.create(:user) }
+	let(:user) { FactoryGirl.create(:user) }
 
 	  describe 'for non-signed in users do' do
 		  let(:user) { FactoryGirl.create(:user) }
