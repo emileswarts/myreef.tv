@@ -9,4 +9,11 @@ describe Gallery do
   it { should respond_to :title }
   it { should respond_to :user_id }
   it { should respond_to :file }
+
+  it { should be_valid }
+
+  describe "When a user id is not valid" do
+	  before { @gallery.user_id = nil }
+	  it { should_not be_valid }
+  end
 end
