@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_many :galleries
+
   before_save { self.email.downcase! }
   before_save :create_remember_token
 
