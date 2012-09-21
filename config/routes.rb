@@ -1,12 +1,12 @@
 Myreef::Application.routes.draw do
 
   resources :users
+  resources :galleries
   resources :sessions, only: [:new, :create, :destroy ]
 
   get "users/new"
   root to: 'static_pages#home'
   get "static_pages/home"
-  get "users/new"
   get "static_pages/help"
   get "static_pages/about"
 

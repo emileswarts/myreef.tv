@@ -5,4 +5,5 @@ class Gallery < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, presence: true
+  default_scope order: 'galleries.created_at DESC'
 end

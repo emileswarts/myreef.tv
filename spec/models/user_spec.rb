@@ -127,4 +127,19 @@ describe User do
 			@user.reload.email.should == email_with_mixed_case.downcase
 		end
 	end
+
+	describe "gallery order" do
+		before { @user.save }
+		let!(:older_gallery) do
+			FactoryGirl.create(:gallery, user: @user, created_at: 1.day.ago)
+		end
+
+		let!(:newer_gallery) do
+			FactoryGirl.create(:gallery, user: @user, created_at: 1.hour.ago)
+		end
+
+		it "should have the right gallery in the right order" do
+			@user.galleries.should == [ newer_gallery, older_gallery]
+		end
+	end
 end
