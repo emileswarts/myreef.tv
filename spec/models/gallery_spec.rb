@@ -28,4 +28,23 @@ describe Gallery do
 		before { @gallery.user_id = nil }
 		it { should_not be_valid }
 	end
+
+	describe "When a user id is not present" do
+		before { @gallery.user_id = nil }
+		it { should_not be_valid }
+	end
+
+	describe "With a blank title" do
+		before { @gallery.title = nil }
+		it { should_not be_valid }
+	end
+
+	describe "with a file that is too large" do
+		#todo
+	end
+
+	describe "with a title that is too long" do
+		before { @gallery.title = "a" * 201 }
+		it { should_not be_valid }
+	end
 end
