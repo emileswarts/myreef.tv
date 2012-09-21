@@ -142,4 +142,26 @@ describe User do
 			@user.galleries.should == [ newer_gallery, older_gallery]
 		end
 	end
+
+	describe "gallery association" do
+
+		before { @user.save }
+
+		let!(:older_gallery) do
+			FactoryGirl.create(:gallery, user: @user, created_at: 1.day.ago)
+		end
+
+		let!(:newer_gallery) do
+			FactoryGirl.create(:gallery, user: @user, created_at: 1.hour.ago)
+		end
+
+		it "should destroy associated galleries" do
+			galleries = @user.galleries
+			@user.destroy
+			galleries.each do |gallery|
+				Gallery.find_by_id(gallery.id).should be_nil
+			end
+		end
+
+	end
 end
