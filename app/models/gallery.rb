@@ -7,7 +7,7 @@ class Gallery < ActiveRecord::Base
   attr_accessible :photo_file_size
   attr_accessible :photo_updated_at
 
-  has_attached_file :photo, :styles => { :medium => "800x800>", :thumb => "100x100>"}
+  has_attached_file :photo, :styles => { :medium => "800x800>", :thumb => "200x200>"}
 
   belongs_to :user
 

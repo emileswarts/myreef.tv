@@ -5,7 +5,7 @@
 <%= will_paginate %>
 <ul class='gallery'>
 	<% @galleries.each do |gallery| %>
-		<%= render @galleries %>
+		<%= image_tag gallery.photo.url(:thumb), :alt => gallery.title %>
 	<% end %>
 </ul>
 
