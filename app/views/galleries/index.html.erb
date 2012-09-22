@@ -1,1 +1,12 @@
 <%= provide(:title, "Test") %>
+
+<h1>Gallery</h1>
+
+<%= will_paginate %>
+<ul class='gallery'>
+	<% @galleries.each do |gallery| %>
+		<%= render @galleries %>
+	<% end %>
+</ul>
+
+<%= will_paginate %>

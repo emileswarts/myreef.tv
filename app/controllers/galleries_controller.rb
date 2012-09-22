@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
 
 	def index
+		@galleries = Gallery.paginate(page: params[:page])
 	end
 
 	def edit
