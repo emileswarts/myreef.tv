@@ -12,16 +12,20 @@ class GalleriesController < ApplicationController
 	end
 
 	def create
-		@gallery = current_user.galleries.build(params[:gallery])
-		if @gallery.save(params[:gallery] )
-			flash[:success] = "Item saved"
+
+		@gallery = current_user.galleries.build( params[:gallery] )
+
+		if @gallery.save
+			flash[:success] = "Success"
 			redirect_to @gallery
 		else
-			flash[:error] = "Could not save"
+			flash[:error] = "Error"
+			redirect_to @gallery
 		end
 	end
 
 	def show
-
+	  @gallery = Gallery.find(params[:id])
+		logger.debug(@gallery)
 	end
 end
