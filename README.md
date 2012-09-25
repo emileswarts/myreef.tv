@@ -56,7 +56,7 @@ Users can search by tags, users or just a free textbox.  Can look into using a s
 ------------
 
 When users create content, they will be able to tag it so that it is easy to find.  New tags can be created by the user.  There will be a tag type,
-and tag.
+and tag.  A gem called 'acts-as-taggable' will be used for this.  Tags will autocomplete as they are being typed in.
 
 7.  Events
 -----------
