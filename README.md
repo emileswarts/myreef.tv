@@ -1,7 +1,7 @@
 myreef.tv 
 =============
 
-This is my project to learn rails, and to produce a fully functional website by the end of it.
+This is my project to learn rails/ruby, and to produce a fully functional website by the end of it.
 
 Background
 -----------
@@ -19,7 +19,7 @@ The website will be built in phases.  First it will be about letting users uploa
 Functional 
 ----------
 
-I will build myreef.tv in Ruby on Rails (latest at this time is 3), and will be hosted on Heroku.  I will use Rspec and Cucumber for testing.  Spork and Guard will be used in conjunction with this.  Git will be used for version control.  Erb will be used for the template.  Twitter bootstrap will be used for the css, compiled with SASS.  The database will be mongodb.
+I will build myreef.tv in Ruby on Rails (latest at this time is 3), and will be hosted on Heroku.  I will use Rspec and Cucumber for testing.  Spork and Guard will be used in conjunction with this.  Git will be used for version control.  Erb will be used for the template.  Twitter bootstrap will be used for the css, compiled with SASS.  The database will be sqlite3.
 
 Modules
 ----------
@@ -27,7 +27,7 @@ Modules
 1.  Gallery
 ------------
 
-Users will upload images to their account once registered.  Images will be searchable, and can contain meta-data.  An image can be tagged and rated to make searching easier.  The maximum size of a raw image upload will be 3mb.  There may be hosting implications and I will need to keep an eye on this.  Images will open in a popup lightbox when clicked on, which will display the information of the image next to it.  In the initial listing, images will display in a grid and will be divided into pages.  20 per page.
+Users will upload images to their account once registered.  Images will be searchable, and can contain meta-data.  An image can be tagged and rated to make searching easier.  The maximum size of a raw image upload will be 3mb.  There may be hosting implications and I will need to keep an eye on this.  Images will open in a popup lightbox when clicked on, which will display the information of the image next to it.  In the initial listing, images will display in a grid and will be divided into pages.  20 per page.  There will be a search form above it with dropdowns for tags, and a keyword search field.  Images can also be searched per user.
 
 Meta data fields will include:
 Caption (optional)
@@ -38,7 +38,7 @@ Description (optional)
 ------------
 
 Users will be able to Register an account and login to the site.  When registering, an approval email will be sent to the user.  They will have the
-ability to change their encrypted password and details by resetting their password.  A users profile needs to accommodate as much information as they want to put in there.  The registration form should be simple and not contain many fields.  Users can go back and edit their profiles if they feel like it.   I can blacklist problem users.
+ability to change their encrypted password and details by resetting their password.  A users profile needs to accommodate as much information as they want to put in there, or none.  The registration form should be simple and not contain many fields.  Users can go back and edit their profiles if they feel like it.   I can blacklist problem users.
 
 Tanks, Cases, Rank, Comments and Events belong to users.
 
@@ -50,7 +50,7 @@ Users can embed youtube videos, and will be displayed in their video section.
 5.  Search
 -----------
 
-Users can search by tags, or just a free textbox.  Can look into using a search service like google.
+Users can search by tags, users or just a free textbox.  Can look into using a search api like google.
 
 6.  Tagging
 ------------
@@ -61,7 +61,7 @@ and tag.
 7.  Events
 -----------
 
-Users will be able to add events, and tag them.  They will also put in a postcode/long-lat and this will appear on a map.
+Users will be able to add events, and tag them.  They will also put in a postcode/long-lat and this will appear on a google map.
 
 8.  Cases
 ----------
@@ -76,7 +76,7 @@ A tank has to be added to create a case.
 12.  Fish database
 -------------------
 
- Users can add fish to their fishtanks.  Each fish has a profile.  The point of this is that fish are "re-usable", and existing fish can be added to another users tank.  An automated system will populate fish data.
+Users can add fish to their fishtanks.  Each fish has a profile.  The point of this is that fish are "re-usable", and existing fish can be added to another users tank.  An automated system will populate fish data.  Some sort of ajax functionality with google images and a few other sites can be used to obtain this information.
 
 13.  Comments
 --------------
