@@ -1,13 +1,11 @@
 class Gallery < ActiveRecord::Base
 
-  attr_accessible :photo
-  attr_accessible :title
-  attr_accessible :photo_file_name
-  attr_accessible :photo_content_type
-  attr_accessible :photo_file_size
-  attr_accessible :photo_updated_at
+  attr_accessible :photo, :title, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
 
   has_attached_file :photo, :styles => { :medium => "800x800>", :thumb => "200x200>"}
+
+  acts_as_taggable
+  acts_as_taggable_on :photo
 
   belongs_to :user
 
