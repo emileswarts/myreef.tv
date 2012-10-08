@@ -5,7 +5,7 @@
 <%= will_paginate %>
 <ul class='gallery'>
 	<% @galleries.each do |gallery| %>
-		<%= image_tag gallery.photo.url(:thumb), :alt => gallery.title, :class => "list_image" %>
+		<%= link_to (image_tag gallery.photo.url(:thumb), :alt => gallery.title, :class => "list_image"), galleries_path(gallery) %>
 	<% end %>
 </ul>
 

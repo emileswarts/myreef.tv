@@ -5,7 +5,7 @@ class GalleriesController < ApplicationController
 	end
 
 	def edit
-	  @gallery = Gallery.find(params[:id])
+	  @gallery = Gallery.find_by_user_id(current_user)
 	end
 
 	def new
@@ -27,6 +27,5 @@ class GalleriesController < ApplicationController
 
 	def show
 	  @gallery = Gallery.find(params[:id])
-		logger.debug(@gallery)
 	end
 end
