@@ -4,6 +4,8 @@ Myreef::Application.routes.draw do
   resources :galleries
   resources :sessions, only: [:new, :create, :destroy ]
 
+  get "tags/:tag", to: "galleries#index", as: :tag
+
   get "users/new"
   root to: 'static_pages#home'
   get "static_pages/home"

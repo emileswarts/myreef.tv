@@ -6,6 +6,7 @@
 <ul class='gallery'>
 	<% @galleries.each do |gallery| %>
 		<%= link_to (image_tag gallery.photo.url(:thumb), :alt => gallery.title, :class => "list_image"), gallery %>
+		<p>Tags: <%= raw gallery.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')   %></p>
 		<%= link_to "Edit", edit_gallery_path(gallery)   %>
 		<%= link_to "delete", gallery, method: :delete, data: { confirm: "Are you sure?" }  %>
 	<% end %>

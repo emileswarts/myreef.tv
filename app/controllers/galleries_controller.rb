@@ -1,7 +1,11 @@
 class GalleriesController < ApplicationController
 
 	def index
-		@galleries = Gallery.paginate(page: params[:page])
+		if params[:tag] 
+			@galleries = Gallery.tagged_with(params[:tag]).paginate(page: params[:page])
+		else
+			@galleries = Gallery.paginate(page: params[:page])
+		end
 	end
 
 	def update
@@ -12,7 +16,6 @@ class GalleriesController < ApplicationController
 		else
 			render 'edit'
 		end
-
 	end
 
 	def edit
@@ -24,10 +27,7 @@ class GalleriesController < ApplicationController
 	end
 
 	def destroy
-
 		@gallery = Gallery.find(params[:id])
-		#logger.debug @gallery.methods
-
 		flash[:success] = "Success"
 		redirect_to @gallery
 	end
