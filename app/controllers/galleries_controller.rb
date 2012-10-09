@@ -27,8 +27,8 @@ class GalleriesController < ApplicationController
 	end
 
 	def destroy
-		@gallery = Gallery.find(params[:id])
-		flash[:success] = "Success"
+		@gallery = Gallery.find(params[:id]).destroy
+		flash[:success] = "Image deleted"
 		redirect_to @gallery
 	end
 

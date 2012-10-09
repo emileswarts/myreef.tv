@@ -38,6 +38,7 @@ describe User do
 		before{ @user.save }
 		its(:remember_token) { should_not be_blank }
 	end
+
 	describe "When a name is not present" do
 		before { @user.name = " " }
 		it { should_not be_valid }
@@ -94,7 +95,7 @@ describe User do
 	end
 
 	describe "When password confirmation is nil" do
-		before {@user.password_confirmation = nil }
+		before { @user.password_confirmation = nil }
 		it { should_not be_valid }
 	end
 
