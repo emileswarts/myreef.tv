@@ -1,6 +1,6 @@
 class Gallery < ActiveRecord::Base
 
-  attr_accessible :photo, :title, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
+  attr_accessible :photo, :title, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :tag_list
 
   has_attached_file :photo, :styles => { :medium => "800x800>", :thumb => "200x200#"}
 

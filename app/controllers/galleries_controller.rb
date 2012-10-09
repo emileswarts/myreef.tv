@@ -4,8 +4,19 @@ class GalleriesController < ApplicationController
 		@galleries = Gallery.paginate(page: params[:page])
 	end
 
+	def update
+	  @gallery = Gallery.find(params[:id])
+		if @gallery.update_attributes(params[:gallery])
+			flash[:success] = "Image updated"
+			redirect_to @gallery
+		else
+			render 'edit'
+		end
+
+	end
+
 	def edit
-	  @gallery = Gallery.find_by_user_id(current_user)
+	  @gallery = Gallery.find(params[:id])
 	end
 
 	def new
