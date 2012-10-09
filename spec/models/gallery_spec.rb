@@ -24,7 +24,7 @@ describe Gallery do
 		#end
 	end
 
-	describe "When a user id is not valid" do
+	describe "When a gallery id is not valid" do
 		before { @gallery.user_id = nil }
 		it { should_not be_valid }
 	end
@@ -32,6 +32,11 @@ describe Gallery do
 	describe "When a user id is not present" do
 		before { @gallery.user_id = nil }
 		it { should_not be_valid }
+	end
+
+	describe "When a user destroys one of his own gallery items" do
+		#@gallery = @user.galleries
+		#it { should_not be_valid }
 	end
 
 	describe "With a blank title" do

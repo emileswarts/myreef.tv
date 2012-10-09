@@ -5,6 +5,7 @@
 		<%= form_for(@gallery) do |f| %>
 			<%= f.text_field :title %><br />
 			<%= f.file_field :photo %><br />
+			<%= image_tag @gallery.photo.url(:thumb) %><br />
 
 			<div style='clear:both'></div>
 			<%= f.submit "Update", class: "btn btn-large btn-primary" %>

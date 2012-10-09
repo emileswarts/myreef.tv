@@ -12,6 +12,15 @@ class GalleriesController < ApplicationController
 	  @gallery = Gallery.new
 	end
 
+	def destroy
+
+		@gallery = Gallery.find(params[:id])
+		#logger.debug @gallery.methods
+
+		flash[:success] = "Success"
+		redirect_to @gallery
+	end
+
 	def create
 
 		@gallery = current_user.galleries.build( params[:gallery] )
