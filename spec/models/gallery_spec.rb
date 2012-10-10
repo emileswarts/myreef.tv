@@ -16,9 +16,17 @@ describe Gallery do
 
 	it { should be_valid }
 
-	describe "When a gallery id is not valid" do
+	describe "When a user id is not valid" do
 		before { @gallery.user_id = nil }
 		it { should_not be_valid }
+	end
+
+	describe "accessible attributes" do
+		it "should not allow access to user_id attribute" do
+			expect do
+				Gallery.new(user_id: user.id)
+			end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+		end
 	end
 
 	describe "When a gallery item is destroyed" do

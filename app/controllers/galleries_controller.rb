@@ -1,6 +1,10 @@
 class GalleriesController < ApplicationController
 
+	before_filter :signed_in_user, only: [:create, :destroy]
+
 	def index
+		#Filters can be:
+		#By user, keyword search, top rated, tags.  Default latest
 		if params[:tag] 
 			@galleries = Gallery.tagged_with(params[:tag]).paginate(page: params[:page])
 		else
@@ -34,7 +38,7 @@ class GalleriesController < ApplicationController
 
 	def create
 
-		@gallery = current_user.galleries.build( params[:gallery] )
+		@gallery = user.galleries.build( params[:gallery] )
 
 		if @gallery.save
 			flash[:success] = "Success"

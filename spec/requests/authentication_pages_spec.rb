@@ -5,10 +5,21 @@ describe "Authentication" do
   subject{page}
 
   describe "authorization" do
-	let(:user) { FactoryGirl.create(:user) }
+	  let(:user) { FactoryGirl.create(:user) }
 
 	  describe 'for non-signed in users do' do
-		  let(:user) { FactoryGirl.create(:user) }
+
+		  describe "in the Gallery controller" do
+			  describe "when submitting to the create action" do
+				  before { post galleries_path }
+				  specify { response.should redirect_to(signin_path) }
+			  end
+
+			  describe "submitting to the destroy action" do
+				  before { delete gallery_path(FactoryGirl.create(:gallery)) }
+				  specify { response.should redirect_to(signin_path) }
+			  end
+		  end
 
 		  describe "When visiting a protected page" do
 			  before do
