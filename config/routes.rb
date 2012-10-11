@@ -2,6 +2,8 @@ Myreef::Application.routes.draw do
 
   resources :users
   resources :galleries
+  resources :fishtanks
+  resources :photos
   resources :sessions, only: [ :new, :create, :destroy ]
 
   get "tags/:tag", to: "galleries#index", as: :tag

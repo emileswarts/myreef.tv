@@ -7,7 +7,7 @@ class Gallery < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :photo
 
-  belongs_to :user
+  belongs_to :fish_tank
 
   validates :title, presence: true, length: { maximum: 200 }
   validates :photo, presence: true
