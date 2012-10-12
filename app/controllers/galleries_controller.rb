@@ -38,7 +38,7 @@ class GalleriesController < ApplicationController
 
 	def create
 
-		@gallery = user.fishtank.build( params[:gallery] )
+		@gallery = Gallery.new(params[:gallery])
 
 		if @gallery.save
 			flash[:success] = "Success"
