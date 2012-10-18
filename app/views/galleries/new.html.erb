@@ -1,5 +1,4 @@
-
-<%= form_for @gallery, :url => galleries_path, :html => { :multipart => true } do |form| %>
+<%= form_for @gallery, :html => { :multipart => true } do |form| %>
 	<%= form.text_field :title %><br />
 	<%= form.file_field :photo %><br />
 	<%= form.submit :submit %>

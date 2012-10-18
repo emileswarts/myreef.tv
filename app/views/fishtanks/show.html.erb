@@ -1,2 +1,5 @@
-<%= image_tag @fishtank.photo.url %>
+<h2><%= @fishtank.title %></h2>
 <%= image_tag @fishtank.photo.url(:thumb) %>
+<h2>
+	<%= link_to "Add a photo to your fishtank", :controller => :galleries, :action => :new, :fishtank_id => @fishtank.id  %>
+</h2>

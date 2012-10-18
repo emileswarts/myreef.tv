@@ -2,7 +2,7 @@ Myreef::Application.routes.draw do
 
   resources :users
   resources :galleries
-  resources :fishtanks
+  resources :fishtanks 
   resources :photos
   resources :sessions, only: [ :new, :create, :destroy ]
 
@@ -14,6 +14,9 @@ Myreef::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"
 
+  match '/fishtanks/:fishtank_id/galleries/new', to: 'galleries#new'
+  match '/fishtanks/:id/galleries/:gallery_id', to: 'galleries#edit'
+  match '/galleries', to: 'galleries#new', via: 'get'  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'  

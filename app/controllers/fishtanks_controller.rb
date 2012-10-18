@@ -3,6 +3,7 @@ class FishtanksController < ApplicationController
 	before_filter :signed_in_user
 
 	def index
+		@fishtanks = current_user.fishtanks
 	end
 
 	def new
@@ -10,7 +11,7 @@ class FishtanksController < ApplicationController
 	end
 
 	def create
-		@fishtank = current_user.fishtanks.build( params[:fishtank] )
+		@fishtank = current_user.fishtanks.build(params[:fishtank])
 
 		if @fishtank.save
 			flash[:success] = "Success"

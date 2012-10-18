@@ -3,8 +3,21 @@
 <h1>Fish tank</h1>
 
 
-<ul class='gallery'>
+<ul class='fishtanks'>
+	<% @fishtanks.each do |fishtank| %>
+		<%= fishtank.title %>
 
+		<%= link_to (image_tag fishtank.photo.url(:thumb), 
+					 :alt => fishtank.title, 
+					 :class => "list_image"), 
+					 { 
+						:action => "index", 
+						:controller => "galleries", 
+						:fishtank_id => fishtank.id  
+					} %>
+					<%= link_to "Add image", new_fishtank_gallery_path(fishtank) %>
+	<% end %>
 
 </ul>
+
 <div style='clear:both'></div>

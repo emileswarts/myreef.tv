@@ -7,7 +7,7 @@ class Gallery < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :photo
 
-  belongs_to :fishtanks
+  belongs_to :fishtanks, :autosave => true
   has_many :photos, foreign_key: "fishtank_id"
 
   validates :title, presence: true, length: { maximum: 200 }

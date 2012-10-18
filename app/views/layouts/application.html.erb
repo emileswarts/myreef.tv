@@ -18,6 +18,8 @@
 				<%= content_tag('div', value, class: "alert alert-#{key}") %>
 			<% end %>
 
+			<%= render 'layouts/rightcol' %>
+
 			<%= yield %>
 			<%= render 'layouts/footer' %>
 		</div>

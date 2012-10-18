@@ -27,7 +27,8 @@ class GalleriesController < ApplicationController
 	end
 
 	def new
-	  @gallery = Gallery.new
+	  @fishtank = Fishtank.find(params[:fishtank_id])
+	  @gallery = @fishtank.galleries.new
 	end
 
 	def destroy
@@ -37,16 +38,15 @@ class GalleriesController < ApplicationController
 	end
 
 	def create
+	    @gallery = Gallery.new(params[:gallery])
 
-		@gallery = Gallery.new(params[:gallery])
-
-		if @gallery.save
-			flash[:success] = "Success"
-			redirect_to @gallery
-		else
-			flash[:error] = "Error"
-			redirect_to @gallery
-		end
+	    if @gallery.save
+	    	flash[:success] = "Success"
+	    	redirect_to @gallery
+	    else
+	    	flash[:error] = "Error"
+	    	redirect_to @gallery
+	    end
 	end
 
 	def show
