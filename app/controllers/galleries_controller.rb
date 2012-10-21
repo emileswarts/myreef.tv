@@ -3,12 +3,10 @@ class GalleriesController < ApplicationController
 	before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
 
 	def index
-		#Filters can be:
-		#By user, keyword search, top rated, tags.  Default latest
 		if params[:tag] 
 			@galleries = Gallery.tagged_with(params[:tag]).paginate(page: params[:page])
 		else
-			@galleries = Gallery.paginate(page: params[:page])
+			@galleries = Gallery.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
 		end
 	end
 
