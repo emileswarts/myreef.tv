@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
 
-	before_filter :signed_in_user, only: [:create, :destroy]
+	before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
 
 	def index
 		#Filters can be:

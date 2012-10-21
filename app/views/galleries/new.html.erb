@@ -1,5 +1,6 @@
 <%= form_for @gallery, :html => { :multipart => true } do |form| %>
 	<%= form.text_field :title %><br />
 	<%= form.file_field :photo %><br />
+	<%= form.hidden_field :fishtank_id %><br />
 	<%= form.submit :submit %>
 <% end %>
