@@ -19,7 +19,6 @@ describe User do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
-	it { should respond_to(:galleries) }
 	it { should respond_to(:admin) }
 
 	it { should be_valid }
@@ -127,42 +126,5 @@ describe User do
 			@user.save
 			@user.reload.email.should == email_with_mixed_case.downcase
 		end
-	end
-
-	describe "gallery order" do
-		before { @user.save }
-		let!(:older_gallery) do
-			FactoryGirl.create(:gallery, user: @user, created_at: 1.day.ago)
-		end
-
-		let!(:newer_gallery) do
-			FactoryGirl.create(:gallery, user: @user, created_at: 1.hour.ago)
-		end
-
-		it "should have the right gallery in the right order" do
-			@user.galleries.should == [ newer_gallery, older_gallery]
-		end
-	end
-
-	describe "gallery association" do
-
-		before { @user.save }
-
-		let!(:older_gallery) do
-			FactoryGirl.create(:gallery, user: @user, created_at: 1.day.ago)
-		end
-
-		let!(:newer_gallery) do
-			FactoryGirl.create(:gallery, user: @user, created_at: 1.hour.ago)
-		end
-
-		it "should destroy associated galleries" do
-			galleries = @user.galleries
-			@user.destroy
-			galleries.each do |gallery|
-				Gallery.find_by_id(gallery.id).should be_nil
-			end
-		end
-
 	end
 end

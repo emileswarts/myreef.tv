@@ -9,9 +9,4 @@ FactoryGirl.define do
 			admin true
 		end
 	end
-
-	factory :gallery do
-		title "Test"
-		user
-	end
 end
