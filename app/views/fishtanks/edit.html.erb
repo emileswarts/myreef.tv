@@ -1,20 +1,19 @@
-<%= provide :title, "Edit Gallery" %>
-<h1>Update your gallery</h1>
-<div class="row">
-	<div class="span6 offset3">
-		<%= form_for(@gallery) do |f| %>
-			<%= f.text_field :title %><br />
+<%= provide(:title, "Fish tank") %>
 
-			<%= f.file_field :photo %><br />
+<%= form_for @fishtank, :url => fishtanks_path, :html => { :multipart => true } do |form| %>
 
-			<%= f.label :tag_list %><br />
-			<%= f.text_field :tag_list %><br />
-			<%= image_tag @gallery.photo.url(:thumb) %><br />
+	<%= form.label :title %>
+	<%= form.text_field :title %><br />
 
-			<div style='clear:both'></div>
-			<%= f.submit "Update", class: "btn btn-large btn-primary" %>
-		<% end %>
-	</div>
-</div>
-<%= debug(@gallery) %>
+	<%= form.label :capacity, "Capacity (L)" %>
+	<%= form.text_field :capacity %><br />
 
+	<%= form.label :description %>
+	<%= form.text_area :description, :cols => 10, :rows => 10 %><br />
+
+	<%= form.label :photo %>
+	<%= form.file_field :photo %><br />
+
+	<%= form.submit :submit, :class => 'btn-large btn-primary' %>
+
+<% end %>

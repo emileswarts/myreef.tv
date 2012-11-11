@@ -23,6 +23,7 @@ class FishtanksController < ApplicationController
 	end
 
 	def edit
+		@fishtank = Fishtank.find(params[:id])
 	end
 
 	def update
