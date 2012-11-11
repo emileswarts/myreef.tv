@@ -1,5 +1,12 @@
 <h2><%= @fishtank.title %></h2>
 <%= image_tag @fishtank.photo.url(:thumb) %>
-<h2>
-	<%= link_to "Add a photo to your fishtank", :controller => :galleries, :action => :new, :fishtank_id => @fishtank.id  %>
-</h2>
+<div class="span6">
+	<h4><strong><a href="#"><%= @fishtank.title %></a></strong></h4>
+	<p>
+	<%= @fishtank.description %>
+	</p>
+	<p>
+	<%= link_to "Add photos", new_fishtank_gallery_path(@fishtank), :class => 'btn btn-success' %>
+	<%= link_to "Edit", edit_fishtank_path(@fishtank), :class => 'btn btn-primary' %>
+	<%= link_to "delete", @fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+</div>

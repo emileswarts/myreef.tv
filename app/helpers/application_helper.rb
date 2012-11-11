@@ -10,4 +10,10 @@ module ApplicationHelper
 		end
 	end
 
+	def homepage?
+		if request.path_parameters[:controller] == 'static_pages' && request.path_parameters[:action] == 'home'
+			true
+		end
+	end
+
 end
