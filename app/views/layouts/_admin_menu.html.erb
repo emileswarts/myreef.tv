@@ -1,0 +1,33 @@
+<div class="sidebar-nav" style='float:right'>
+
+	<div class="well" style="width:300px; padding: 8px 0;">
+
+		<ul class="nav nav-list">
+			<li class="nav-header">Menu</li>
+			<li>
+				<%= link_to(current_user) do %>
+					<i class="icon-home"></i> Dashboard
+				<% end %>
+			</li>
+
+			<li>
+				<%= link_to(fishtanks_path(current_user)) do %>
+					<i class="icon-home"></i> Fishtanks
+				<% end %>
+			</li>
+
+			<li>
+				<%= link_to(galleries_path) do %>
+					<i class="icon-picture"></i> Galleries
+				<% end %>
+			</li>
+
+			<li><a href="#"><i class="icon-comment"></i> Cases <span class="badge badge-info">10</span></a></li>
+			<li class="divider"></li>
+			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+			<%# <li><a href="#"><i class="icon-comment"></i> Settings</a></li> %>
+			<%# <li><a href="#"><i class="icon-share"></i> Logout</a></li> %>
+			<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+		</ul>
+	</div>
+</div>

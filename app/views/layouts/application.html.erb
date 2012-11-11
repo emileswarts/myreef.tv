@@ -11,14 +11,12 @@
 		<%= render 'layouts/header' %>
 		<div class="container">
 			<% if signed_in? %>
-				<!-- stuff here -->
+				<%= render 'layouts/admin_menu' %>
 			<% end %>
 
 			<% flash.each do |key, value| %>
 				<%= content_tag('div', value, class: "alert alert-#{key}") %>
 			<% end %>
-
-			<%= render 'layouts/rightcol' %>
 
 			<%= yield %>
 			<%= render 'layouts/footer' %>
