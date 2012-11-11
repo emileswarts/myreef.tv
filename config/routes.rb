@@ -1,5 +1,7 @@
 Myreef::Application.routes.draw do
 
+  resources :creatures
+
   resources :users
   resources :fishtanks do
 	  resources :galleries
