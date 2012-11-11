@@ -10,6 +10,13 @@ class FishtanksController < ApplicationController
 		@fishtank = Fishtank.new
 	end
 
+	def destroy
+		@fishtank = Fishtank.find(params[:id])
+		@fishtank.destroy
+		flash[:success] = "Fish tank deleted"
+		redirect_to @fishtank
+	end
+
 	def create
 		@fishtank = current_user.fishtanks.build(params[:fishtank])
 

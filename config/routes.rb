@@ -18,6 +18,7 @@ Myreef::Application.routes.draw do
 
   match '/fishtanks/:fishtank_id/galleries/new', to: 'galleries#new'
   match '/fishtanks/:id/galleries/:gallery_id', to: 'galleries#edit'
+
   match '/galleries', to: 'galleries#new', via: 'get'  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
