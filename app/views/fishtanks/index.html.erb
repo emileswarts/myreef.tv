@@ -7,11 +7,6 @@
 <div class="row">
 	<div class="span8">
 		<div class="row">
-			<div class="span8">
-				<h4><strong><a href="#"><%= fishtank.title %></a></strong></h4>
-			</div>
-		</div>
-		<div class="row">
 			<div class="span2">
 		<%= link_to (image_tag fishtank.photo.url(:thumb), 
 					 :alt => fishtank.title, 
@@ -23,6 +18,7 @@
 		}, :class => "thumbnail" %>
 			</div>
 			<div class="span6">
+				<h4><strong><a href="#"><%= fishtank.title %></a></strong></h4>
 				<p>
 				<%= fishtank.description %>
 				</p>
@@ -39,7 +35,7 @@
 				<i class="icon-user"></i> by <a href="#"><%= current_user.name %></a>
 				| <i class="icon-calendar"></i> <%= fishtank.date_aquired.strftime('%d %B %Y') %>
 				| <i class="icon-comment"></i> <a href="#">3 Comments</a>
-				| <i class="icon-share"></i> <a href="#">39 Shares</a>
+				| <i class="icon-share"></i> Capacity: <a href="#"><%= fishtank.capacity %> (L)</a>
 				| <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
 				<a href="#"><span class="label label-info">Bootstrap</span></a>
 				<a href="#"><span class="label label-info">UI</span></a>
