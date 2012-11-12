@@ -4,7 +4,7 @@
     $(function() {
 			$('#fishtank_creature_list').hide();
 			$('#toggle_fishtank_creature_list').on("click", function(e){
-				$('#fishtank_creature_list').show();
+				$('#fishtank_creature_list').toggle();
 				 e.preventDefault();
 			});
     });
@@ -38,7 +38,7 @@
 				<%= link_to "Edit", edit_fishtank_path(fishtank), :class => 'btn' %>
 				<%= link_to "delete", fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 			</div>
-			<div id="fishtank_creature_list">
+			<div class='span8' id="fishtank_creature_list">
 				<ul>
 					<% fishtank.creatures.each do |creature|  %>
 						<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
