@@ -1,4 +1,7 @@
 class CreaturesController < ApplicationController
+	
+	before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
+
   def index
     @creatures = Creature.all
 
@@ -18,6 +21,7 @@ class CreaturesController < ApplicationController
   end
 
   def new
+	@fishtank = Fishtank.find(params[:fishtank_id])
     @creature = Creature.new
 
     respond_to do |format|
@@ -33,15 +37,14 @@ class CreaturesController < ApplicationController
   def create
     @creature = Creature.new(params[:creature])
 
-    respond_to do |format|
-      if @creature.save
-        format.html { redirect_to @creature, notice: 'Creature was successfully created.' }
-        format.json { render json: @creature, status: :created, location: @creature }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @creature.errors, status: :unprocessable_entity }
-      end
-    end
+	if @creature.save
+		flash[:success] = 'Creature was successfully created.' 
+		redirect_to @creature  
+	else
+		flash[:error] = "Error"
+		redirect_to @creature
+	end
+
   end
 
   def update

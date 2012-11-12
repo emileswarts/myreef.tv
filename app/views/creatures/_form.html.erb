@@ -28,10 +28,11 @@
 	<%= f.label :date_aquired, "Date aquired" %>
 	<%= f.text_field :date_aquired, :class => "datepicker"  %><br />
 
-  <div class="field">
     <%= f.label :scientific_name %><br />
     <%= f.text_field :scientific_name %>
-  </div>
+
+	<%= f.hidden_field :fishtank_id, :value => params[:fishtank_id] %><br />
+
   <div class="actions">
     <%= f.submit %>
   </div>
