@@ -1,0 +1,8 @@
+<li style='float:left;margin:10px'>
+<%# <%= debug creature.title %1> %>
+		<%= link_to (image_tag creature.photo.url(:thumb), :alt => creature.name, :class => "list_image"), creature %>
+		<%# <br /> %>
+		<%# Tags: <%= raw @creature_row.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')   %1><br /> %>
+		<%# <%= link_to "Edit", edit_@creature_row() %1> %>
+		<%# <%= link_to "delete", @creature_row, method: :delete, data: { confirm: "Are you sure?" }  %1> %>
+</li>

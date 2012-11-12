@@ -1,4 +1,15 @@
 <%= provide(:title, "Fish tank") %>
+ <% content_for :custom_scripts do %>
+  <script type="text/javascript">
+    $(function() {
+			<%# $('#fishtank_creature_list').hide(); %>
+			$('#toggle_fishtank_creature_list').on("click", function(e){
+				alert('clicked');
+				 e.preventDefault();
+			});
+    });
+  </script>
+<% end %>
 
 <h1>Fish tank</h1>
 
@@ -8,14 +19,14 @@
 	<div class="span8">
 		<div class="row">
 			<div class="span2">
-		<%= link_to (image_tag fishtank.photo.url(:thumb), 
-					 :alt => fishtank.title, 
-					 :class => "list_image"), 
-					 { 
-						:action => "index", 
-						:controller => "creatures", 
-						:fishtank_id => fishtank.id  
-		}, :class => "thumbnail" %>
+				<%= link_to (image_tag fishtank.photo.url(:thumb), 
+							 :alt => fishtank.title, 
+							 :class => "list_image"), 
+							 { 
+								:action => "index", 
+								:controller => "creatures", 
+								:fishtank_id => fishtank.id  
+				}, :class => "thumbnail" %>
 			</div>
 			<div class="span6">
 				<h4><strong><a href="#"><%= fishtank.title %></a></strong></h4>
@@ -27,6 +38,13 @@
 				<%= link_to "Edit", edit_fishtank_path(fishtank), :class => 'btn' %>
 				<%= link_to "delete", fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 			</div>
+			<div id = "fishtank_creature_list">
+				<ul>
+				<% fishtank.creatures.each do |creature|  %>
+					<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
+				<% end %>
+				</ul>
+			</div>
 		</div>
 		<div class="row">
 			<div class="span8">
@@ -34,7 +52,7 @@
 				<p>
 				<i class="icon-user"></i> by <a href="#"><%= current_user.name %></a>
 				| <i class="icon-calendar"></i> <%= fishtank.date_aquired.strftime('%d %B %Y') %>
-				| <i class="icon-comment"></i> <a href="#">Creatures <%= fishtank.creatures.count %> </a>
+				| <i class="icon-comment"></i> <a id='toggle_fishtank_creature_list' href="#">Creatures <%= fishtank.creatures.count %> </a>
 				| <i class="icon-share"></i> Capacity: <a href="#"><%= fishtank.capacity %> (L)</a>
 				| <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
 				<a href="#"><span class="label label-info">Bootstrap</span></a>
