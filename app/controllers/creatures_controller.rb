@@ -1,6 +1,4 @@
 class CreaturesController < ApplicationController
-  # GET /creatures
-  # GET /creatures.json
   def index
     @creatures = Creature.all
 
@@ -10,8 +8,6 @@ class CreaturesController < ApplicationController
     end
   end
 
-  # GET /creatures/1
-  # GET /creatures/1.json
   def show
     @creature = Creature.find(params[:id])
 
@@ -21,8 +17,6 @@ class CreaturesController < ApplicationController
     end
   end
 
-  # GET /creatures/new
-  # GET /creatures/new.json
   def new
     @creature = Creature.new
 
@@ -32,13 +26,10 @@ class CreaturesController < ApplicationController
     end
   end
 
-  # GET /creatures/1/edit
   def edit
     @creature = Creature.find(params[:id])
   end
 
-  # POST /creatures
-  # POST /creatures.json
   def create
     @creature = Creature.new(params[:creature])
 
@@ -53,8 +44,6 @@ class CreaturesController < ApplicationController
     end
   end
 
-  # PUT /creatures/1
-  # PUT /creatures/1.json
   def update
     @creature = Creature.find(params[:id])
 
@@ -69,8 +58,6 @@ class CreaturesController < ApplicationController
     end
   end
 
-  # DELETE /creatures/1
-  # DELETE /creatures/1.json
   def destroy
     @creature = Creature.find(params[:id])
     @creature.destroy
