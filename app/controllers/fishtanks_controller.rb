@@ -51,4 +51,5 @@ class FishtanksController < ApplicationController
 		@fishtank = Fishtank.find(params[:id])
 	end
 
+
 end
