@@ -13,7 +13,7 @@
 					 :class => "list_image"), 
 					 { 
 						:action => "index", 
-						:controller => "galleries", 
+						:controller => "creatures", 
 						:fishtank_id => fishtank.id  
 		}, :class => "thumbnail" %>
 			</div>
@@ -23,7 +23,7 @@
 				<%= fishtank.description %>
 				</p>
 				<p>
-				<%= link_to "Add photos", new_fishtank_gallery_path(fishtank), :class => 'btn btn-success' %>
+				<%= link_to "Add creatures", new_fishtank_creature_path(fishtank), :class => 'btn btn-success' %>
 				<%= link_to "Edit", edit_fishtank_path(fishtank), :class => 'btn btn-primary' %>
 				<%= link_to "delete", fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 			</div>

@@ -6,7 +6,7 @@ class Fishtank < ActiveRecord::Base
 
   belongs_to :users
 
-  has_many :galleries, dependent: :destroy
+  has_many :creatures, dependent: :destroy
 
   default_scope order: 'fishtanks.created_at DESC'
 

@@ -1,0 +1,34 @@
+<%= provide(:title, "Fish tank") %>
+
+ <% content_for :custom_scripts do %>
+  <script type="text/javascript">
+    $(function() {
+			$('.datepicker').datepicker({
+					"format": "yyyy-mm-dd",
+					"autoclose": true,
+					"todayBtn": true
+				});
+    });
+  </script>
+<% end %>
+
+<%= form_for @fishtank, :html => { :multipart => true } do |form| %>
+
+	<%= form.label :title %>
+	<%= form.text_field :title %><br />
+
+	<%= form.label :capacity, "Capacity (L)" %>
+	<%= form.text_field :capacity %><br />
+
+	<%= form.label :date_aquired, "Date aquired" %>
+	<%= form.text_field :date_aquired, :class => "datepicker"  %><br />
+
+	<%= form.label :description %>
+	<%= form.text_area :description, :cols => 10, :rows => 10 %><br />
+
+	<%= form.label :photo %>
+	<%= form.file_field :photo %><br />
+
+	<%= form.submit :submit, :class => 'btn-large btn-primary' %>
+
+<% end %>

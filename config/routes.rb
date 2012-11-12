@@ -4,14 +4,13 @@ Myreef::Application.routes.draw do
 
   resources :users
   resources :fishtanks do
-	  resources :galleries
+	  resources :creatures
   end
   resources :photos
   resources :fishtanks
-  resources :galleries
   resources :sessions, only: [ :new, :create, :destroy ]
 
-  get "tags/:tag", to: "galleries#index", as: :tag
+  get "tags/:tag", to: "creatures#index", as: :tag
 
   get "users/new"
   root to: 'static_pages#home'
@@ -19,10 +18,10 @@ Myreef::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"
 
-  match '/fishtanks/:fishtank_id/galleries/new', to: 'galleries#new'
-  match '/fishtanks/:id/galleries/:gallery_id', to: 'galleries#edit'
+  match '/fishtanks/:fishtank_id/creatures/new', to: 'creatures#new'
+  match '/fishtanks/:id/creatures/:creature_id', to: 'creatures#edit'
 
-  match '/galleries', to: 'galleries#new', via: 'get'  
+  match '/creatures', to: 'creatures#new', via: 'get'  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'  
