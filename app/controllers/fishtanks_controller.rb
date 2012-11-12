@@ -4,6 +4,7 @@ class FishtanksController < ApplicationController
 
 	def index
 		@fishtanks = current_user.fishtanks
+		# @creatures = @fishtanks.creatures
 	end
 
 	def new

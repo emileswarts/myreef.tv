@@ -1,12 +1,12 @@
 Myreef::Application.routes.draw do
 
-  resources :creatures
 
   resources :users
   resources :fishtanks do
 	  resources :creatures
   end
   resources :photos
+  resources :creatures
   resources :fishtanks
   resources :sessions, only: [ :new, :create, :destroy ]
 
