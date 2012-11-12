@@ -1,7 +1,11 @@
  <% content_for :custom_scripts do %>
   <script type="text/javascript">
     $(function() {
-      $('.datepicker').datepicker();
+			$('.datepicker').datepicker({
+					"format": "yyyy-mm-dd",
+					"autoclose": true,
+					"todayBtn": true
+				});
     });
   </script>
 <% end %>

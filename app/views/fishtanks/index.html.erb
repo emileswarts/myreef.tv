@@ -40,9 +40,9 @@
 			</div>
 			<div id = "fishtank_creature_list">
 				<ul>
-				<% fishtank.creatures.each do |creature|  %>
-					<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
-				<% end %>
+					<% fishtank.creatures.each do |creature|  %>
+						<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
+					<% end %>
 				</ul>
 			</div>
 		</div>
