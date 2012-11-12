@@ -3,6 +3,13 @@ class CreaturesController < ApplicationController
 	before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
 
   def index
+
+	if params[:tag] 
+		@creatures = Creature.tagged_with(params[:tag]).paginate(page: params[:page])
+	else
+		@creatures = Creature.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
+	end
+
     @creatures = Creature.all
 
     respond_to do |format|

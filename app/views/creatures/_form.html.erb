@@ -37,6 +37,10 @@
 
 	<%= f.hidden_field :fishtank_id, :value => params[:fishtank_id] %><br />
 
+	<%= f.label :tag_list %><br />
+	<%= f.text_field :tag_list %><br />
+	<%= image_tag @creature.photo.url(:thumb) %><br />
+
   <div class="actions">
     <%= f.submit %>
   </div>

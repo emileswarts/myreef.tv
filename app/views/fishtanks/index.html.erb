@@ -2,9 +2,9 @@
  <% content_for :custom_scripts do %>
   <script type="text/javascript">
     $(function() {
-			<%# $('#fishtank_creature_list').hide(); %>
+			$('#fishtank_creature_list').hide();
 			$('#toggle_fishtank_creature_list').on("click", function(e){
-				alert('clicked');
+				$('#fishtank_creature_list').show();
 				 e.preventDefault();
 			});
     });
@@ -38,7 +38,7 @@
 				<%= link_to "Edit", edit_fishtank_path(fishtank), :class => 'btn' %>
 				<%= link_to "delete", fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
 			</div>
-			<div id = "fishtank_creature_list">
+			<div id="fishtank_creature_list">
 				<ul>
 					<% fishtank.creatures.each do |creature|  %>
 						<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
