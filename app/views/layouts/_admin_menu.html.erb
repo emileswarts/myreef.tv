@@ -10,19 +10,22 @@
 				<% end %>
 			</li>
 
-			<li>
-				<%= link_to(fishtanks_path) do %>
-					<i class="icon-home"></i> Fishtanks
-				<% end %>
-			</li>
+			<% if @fishtank_count != 0 %>
+				<li>
+					<%= link_to(fishtanks_path) do %>
+						<i class="icon-home"></i> Fishtanks
+					<% end %>
+				</li>
 
-			<li>
-				<%= link_to(creatures_path(current_user)) do %>
-					<i class="icon-picture"></i> Creatures
-				<% end %>
-			</li>
+				<li>
+					<%= link_to(creatures_path(current_user)) do %>
+						<i class="icon-picture"></i> Creatures
+					<% end %>
+				</li>
+			<% end %>
 
-			<li><a href="#"><i class="icon-comment"></i> Cases <span class="badge badge-info">10</span></a></li>
+			<%# <li><a href="#"><i class="icon-comment"></i> Cases <span class="badge badge-info">10</span></a></li> %>
+
 			<li class="divider"></li>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 			<%# <li><a href="#"><i class="icon-comment"></i> Settings</a></li> %>

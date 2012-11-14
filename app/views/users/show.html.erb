@@ -10,4 +10,8 @@
 		<%= @user.email %>
 		</section>
 	</aside>
+	<% if @fishtank_count == 0 %>
+		You have no fishtanks! 
+		<%= link_to "Add one", new_fishtank_path(current_user) %>
+	<% end %>
 </div>
