@@ -4,13 +4,13 @@ class CreaturesController < ApplicationController
 
   def index
 
+    @creatures = Creature.all
+
 	if params[:tag] 
 		@creatures = Creature.tagged_with(params[:tag]).paginate(page: params[:page])
 	else
 		@creatures = Creature.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
 	end
-
-    @creatures = Creature.all
 
     respond_to do |format|
       format.html # index.html.erb

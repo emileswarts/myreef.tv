@@ -10,12 +10,16 @@ gem 'bootstrap-will_paginate', "0.0.6"
 gem 'paperclip', "~> 3.0"
 gem 'acts-as-taggable-on', "~> 2.3.1"
 gem 'bootstrap-datepicker-rails'
+gem 'activerecord-postgresql-adapter'
+gem 'pg', '0.12.2'
+ 
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+#
 
 group :development do
-	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.10.0'
 	gem 'guard-rspec', '0.5.5'
 	gem 'annotate', '~> 2.4.1.beta'
@@ -42,5 +46,4 @@ group :test do
 end
 
 group :production do
-	gem 'pg', '0.12.2'
 end

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 	def show
 	  @user = User.find(params[:id])
 	  @fishtank_count = current_user.fishtanks.count
+	  @creatures = find_user_creatures(current_user)
 	end
 
   def new

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :fishtanks, dependent: :destroy
+  has_many :creatures, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save :create_remember_token
@@ -16,6 +17,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def self.find_user_creatures(user) 
+    followed_user_ids = "SELECT followed_id FROM relationships
+                         WHERE follower_id = :user_id"
+    where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", 
+          user_id: user.id)
+  end
 
   private
   def create_remember_token
