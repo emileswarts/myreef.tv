@@ -10,6 +10,6 @@ class Creature < ActiveRecord::Base
   validates :photo, presence: true
 
   belongs_to :fishtank
-  belongs_to :user
+  #belongs_to :user
 
 end

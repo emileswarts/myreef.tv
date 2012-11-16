@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :fishtanks, dependent: :destroy
-  has_many :creatures, dependent: :destroy
+  #has_many :creatures, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save :create_remember_token
