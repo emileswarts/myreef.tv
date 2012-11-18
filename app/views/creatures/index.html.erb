@@ -1,11 +1,12 @@
 <h1>Creatures</h1>
 
 <% @creatures.each do |creature| %>
-		<%= image_tag creature.photo.url(:thumb)  %>
+		<%= image_tag creature.photo.url(:thumb), :class => 'creature_image'  %>
 
     <%# <%= link_to 'Show', creature %1> %>
     <%# <%= link_to 'Edit', edit_fishtank_creature_path(creature) %1> %>
     <%# <%= link_to 'Destroy', creature, confirm: 'Are you sure?', method: :delete %1> %>
 <% end %>
 
+		<div style='clear:both'><br /></div>
 <%# <%= link_to 'New Creature', new_creature_path %1> %>
