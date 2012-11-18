@@ -15,7 +15,6 @@ class CreaturesController < ApplicationController
 
   def show
     @creature = Creature.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @creature }
@@ -33,6 +32,9 @@ class CreaturesController < ApplicationController
   end
 
   def edit
+			unless logged_in?
+					redirect_to @creature
+			end
     @creature = Creature.find(params[:id])
   end
 

@@ -2,18 +2,18 @@
 
 <div class="center hero-unit">
 		<div id='hero-content'>
-		<h1>Myreef</h1><br />
-		<h2>Keep track of your creatures</h2><br />
+		<h1>reeftank.me</h1><br />
+		<h2>Track your reef creatures</h2><br />
 
-		<%= link_to "Signup to myreef.tv", signup_path, :class => 'btn btn-large btn-primary' %>
+		<%= link_to "Signup to reeftank.me", signup_path, :class => 'btn btn-large btn-primary' %>
 		</div>
 </div>
 <h1>Keep track of your reef</h1>
 <h2>
 		As you add new creatures to your reef aquarium, you can add them here which will serve as a way to track details about them that is usually forgotten. 
-		You can tag creatures with data, which will be used to help others in the future.
+		You can tag creatures with data, which will be used to help others in the future.  You can also earn stats by identifying creatures by their scientific name or any issues that another user might have.
 </h2>
 <h3>Latest creatures</h3>
 <% @creatures.each do |creature| %>
-		<%= image_tag creature.photo.url(:mini_thumb)  %>
+		<%= link_to (image_tag creature.photo.url(:mini_thumb)), creature_path(creature)  %>
 <% end %>
