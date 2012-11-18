@@ -5,8 +5,9 @@ class CreaturesController < ApplicationController
   def index
 
 		 @creatures = Creature.search(params)
+		 @users = User.find(:all)
 
-		 @display_tag_cloud = true
+		 @display_rhs_filters = true
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @creatures }

@@ -17,13 +17,22 @@
 				<% end 
 			   end %>
 
-				 <% if defined?(@display_tag_cloud) %>
+				 <% if defined?(@display_rhs_filters) %>
 						 <div id="tag_cloud">
 								 <h3>Tags:</h3><br />
 								 <%= link_to "All", creatures_path, class: "label label-info" %>
 								 <% tag_cloud Creature.tag_counts, "label label-info" do |tag, css_class| %>
 										<%= link_to tag.name, tag_path(tag.name), class: "label label-info" %>
 								<% end %>
+
+								<div style='clear:both'><br /></div>
+
+								 <% if @users %>
+										 <h3>Reefkeepers:</h3><br />
+											<% @users.each do |user| %>
+													<%= link_to (gravatar_for user, 50) %>
+											<% end %>
+								 <% end %>
 						 </div>
 				<% end %>
 
