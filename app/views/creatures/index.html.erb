@@ -1,4 +1,4 @@
-<h1>Creatures</h1>
+<% provide(:title, "Creatures") %>
 
 <% @creatures.each do |creature| %>
 		<%= image_tag creature.photo.url(:thumb), :class => 'creature_image'  %>

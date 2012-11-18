@@ -39,7 +39,7 @@
 								 <% if @fishtanks %>
 										 <h3>Fishtanks:</h3><br />
 											<% @fishtanks.each do |fishtank| %>
-													<%= link_to fishtank.title %>
+													<%= link_to fishtank.title, fishtank_creatures_path(fishtank) %>
 											<% end %>
 								 <% end %>
 						 </div>

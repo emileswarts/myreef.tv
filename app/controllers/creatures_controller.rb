@@ -1,79 +1,79 @@
 class CreaturesController < ApplicationController
-	
-	before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
 
-  def index
+		before_filter :signed_in_user, only: [:update, :edit, :create, :destroy]
 
-		 @creatures = Creature.search(params)
-		 @users = User.find(:all)
-		 @fishtanks = Fishtank.find(:all)
+		def index
 
-		 @display_rhs_filters = true
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @creatures }
-    end
-  end
+				@creatures = Creature.search(params)
+				@users = User.find(:all)
+				@fishtanks = Fishtank.find(:all)
 
-  def show
-    @creature = Creature.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @creature }
-    end
-  end
+				@display_rhs_filters = true
+				respond_to do |format|
+						format.html # index.html.erb
+						format.json { render json: @creatures }
+				end
+		end
 
-  def new
-	@fishtank = Fishtank.find(params[:fishtank_id])
-    @creature = Creature.new
+		def show
+				@creature = Creature.find(params[:id])
+				respond_to do |format|
+						format.html # show.html.erb
+						format.json { render json: @creature }
+				end
+		end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @creature }
-    end
-  end
+		def new
+				@fishtank = Fishtank.find(params[:fishtank_id])
+				@creature = Creature.new
 
-  def edit
-			unless signed_in?
-					redirect_to @creature
-			end
-    @creature = Creature.find(params[:id])
-  end
+				respond_to do |format|
+						format.html # new.html.erb
+						format.json { render json: @creature }
+				end
+		end
 
-  def create
-    @creature = Creature.new(params[:creature])
+		def edit
+				unless signed_in?
+						redirect_to @creature
+				end
+				@creature = Creature.find(params[:id])
+		end
 
-	if @creature.save
-		flash[:success] = 'Creature was successfully created.' 
-		redirect_to @creature  
-	else
-		flash[:error] = "Error"
-		redirect_to @creature
-	end
+		def create
+				@creature = Creature.new(params[:creature])
 
-  end
+				if @creature.save
+						flash[:success] = 'Creature was successfully created.' 
+						redirect_to @creature  
+				else
+						flash[:error] = "Error"
+						redirect_to @creature
+				end
 
-  def update
-    @creature = Creature.find(params[:id])
+		end
 
-    respond_to do |format|
-      if @creature.update_attributes(params[:creature])
-        format.html { redirect_to @creature, notice: 'Creature was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @creature.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+		def update
+				@creature = Creature.find(params[:id])
 
-  def destroy
-    @creature = Creature.find(params[:id])
-    @creature.destroy
+				respond_to do |format|
+						if @creature.update_attributes(params[:creature])
+								format.html { redirect_to @creature, notice: 'Creature was successfully updated.' }
+								format.json { head :no_content }
+						else
+								format.html { render action: "edit" }
+								format.json { render json: @creature.errors, status: :unprocessable_entity }
+						end
+				end
+		end
 
-    respond_to do |format|
-      format.html { redirect_to creatures_url }
-      format.json { head :no_content }
-    end
-  end
+		def destroy
+				@creature = Creature.find(params[:id])
+				@creature.destroy
+
+				respond_to do |format|
+						format.html { redirect_to creatures_url }
+						format.json { head :no_content }
+				end
+		end
 end
