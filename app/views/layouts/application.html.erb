@@ -20,9 +20,9 @@
 				 <% if defined?(@display_tag_cloud) %>
 						 <div id="tag_cloud">
 								 <h3>Tags:</h3><br />
-								 <%= link_to "All", creatures_path, class: "l" %>
-								<% tag_cloud Creature.tag_counts, %w[s m l] do |tag, css_class| %>
-										<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+								 <%= link_to "All", creatures_path, class: "label label-info" %>
+								 <% tag_cloud Creature.tag_counts, "label label-info" do |tag, css_class| %>
+										<%= link_to tag.name, tag_path(tag.name), class: "label label-info" %>
 								<% end %>
 						 </div>
 				<% end %>

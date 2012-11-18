@@ -15,5 +15,5 @@
 </h2>
 <h3>Latest creatures</h3>
 <% @creatures.each do |creature| %>
-		<%= image_tag creature.photo.url(:thumb)  %>
+		<%= image_tag creature.photo.url(:mini_thumb)  %>
 <% end %>
