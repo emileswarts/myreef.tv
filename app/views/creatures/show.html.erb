@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @creature.name %>
-</p>
+<div class="row">
+		<div class="span8">
+				<div class="row">
+						<h1><strong><%= @creature.name %></strong> 
+								<% unless @creature.scientific_name.nil? %>
+										(<em><%= @creature.scientific_name %></em>)
+								<% end %>
+</h1>
+								<%= image_tag @creature.photo(:medium) %>
+						<div class="span6">
 
-<p>
-  <b>Date aquired:</b>
-  <%= @creature.date_aquired %>
-</p>
+								<p>Date aquired: <%= @creature.date_aquired %></p>
 
-<p>
-  <%= image_tag @creature.photo(:thumb) %>
-</p>
+						</div>
+				</div>
+		<% if signed_in? %>
+				<%= link_to 'Edit', edit_fishtank_creature_path(current_user) %> |
+				<%= link_to 'Back', creatures_path %>
+				<%= link_to "delete", @creature, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+		<% end %>
+		</div>
 
-<p>
-  <b>Scientific name:</b>
-  <%= @creature.scientific_name %>
-</p>
-
-<% if signed_in? %>
-		<%= link_to 'Edit', edit_fishtank_creature_path(current_user) %> |
-		<%= link_to 'Back', creatures_path %>
-		<%= link_to "delete", @creature, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
-<% end %>
+</div>
+<div style='clear:both'><br /><br /><br /><br /></div>

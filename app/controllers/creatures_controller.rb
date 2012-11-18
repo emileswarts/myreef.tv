@@ -32,7 +32,7 @@ class CreaturesController < ApplicationController
   end
 
   def edit
-			unless logged_in?
+			unless signed_in?
 					redirect_to @creature
 			end
     @creature = Creature.find(params[:id])
