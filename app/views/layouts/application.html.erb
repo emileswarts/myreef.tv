@@ -33,6 +33,15 @@
 													<%= link_to (gravatar_for user, 50) %>
 											<% end %>
 								 <% end %>
+
+								<div style='clear:both'><br /></div>
+
+								 <% if @fishtanks %>
+										 <h3>Fishtanks:</h3><br />
+											<% @fishtanks.each do |fishtank| %>
+													<%= link_to fishtank.title %>
+											<% end %>
+								 <% end %>
 						 </div>
 				<% end %>
 

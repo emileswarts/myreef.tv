@@ -6,6 +6,7 @@ class CreaturesController < ApplicationController
 
 		 @creatures = Creature.search(params)
 		 @users = User.find(:all)
+		 @fishtanks = Fishtank.find(:all)
 
 		 @display_rhs_filters = true
     respond_to do |format|
