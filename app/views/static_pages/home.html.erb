@@ -13,3 +13,7 @@
 		As you add new creatures to your reef aquarium, you can add them here which will serve as a way to track details about them that is usually forgotten. 
 		You can tag creatures with data, which will be used to help others in the future.
 </h2>
+<h3>Latest creatures</h3>
+<% @creatures.each do |creature| %>
+		<%= image_tag creature.photo.url(:thumb)  %>
+<% end %>
