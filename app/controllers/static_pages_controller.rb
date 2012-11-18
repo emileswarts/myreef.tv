@@ -4,9 +4,6 @@ class StaticPagesController < ApplicationController
 			@creatures = Creature.find(:all, :limit => 40)
   end
 
-  def help
-  end
-
   def about
   end
 end

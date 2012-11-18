@@ -8,7 +8,7 @@
 										(<em><%= @creature.scientific_name %></em>)
 								<% end %>
 </h1>
-								<%= image_tag @creature.photo(:medium) %>
+						<%= link_to (image_tag @creature.photo(:medium)), :rel => "lightbox" %>
 						<div class="span6">
 
 								<p>Date aquired: <%= @creature.date_aquired %></p>

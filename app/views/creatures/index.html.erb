@@ -1,7 +1,13 @@
 <% provide(:title, "Creatures") %>
+ <% content_for :custom_scripts do %>
+  <script type="text/javascript">
+    $(function() {
+    });
+  </script>
+<% end %>
 
 <% @creatures.each do |creature| %>
-		<%= image_tag creature.photo.url(:thumb), :class => 'creature_image'  %>
+		<%= link_to (image_tag creature.photo.url(:thumb), :class => 'creature_image'), creature.photo.url(:medium), :rel => "lightbox"  %>
 
     <%# <%= link_to 'Show', creature %1> %>
     <%# <%= link_to 'Edit', edit_fishtank_creature_path(creature) %1> %>
