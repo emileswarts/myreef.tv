@@ -8,6 +8,8 @@ class CreaturesController < ApplicationController
 		@creatures = Creature.tagged_with(params[:tag]).paginate(page: params[:page])
 	elsif params[:fishtank_id]
 		@creatures = Creature.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
+	elsif params[:fishtank_id]
+		@creatures = Creature.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
 	else
 			@creatures = Creature.find(:all)
 	end
