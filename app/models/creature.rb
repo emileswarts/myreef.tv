@@ -17,7 +17,7 @@ class Creature < ActiveRecord::Base
 				elsif params[:fishtank_id]
 						where(:fishtank_id => params[:fishtank_id])
 				elsif params[:q]
-						find(:all, :conditions => ['name like ?', "%#{params[:q]}%"])
+						find(:all, :conditions => ['LOWER(name) like ?', "%#{params[:q].downcase}%"])
 				else
 						find(:all)
 				end
