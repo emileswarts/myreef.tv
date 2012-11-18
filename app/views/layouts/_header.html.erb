@@ -1,7 +1,7 @@
-<header class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<%= link_to "myreef.tv", root_path, id: "logo" %>
+			<%= link_to "myreef.tv", root_path, id: "logo", class: "brand" %>
 			<nav>
 				<ul class="nav pull-right">
 					<li><%= link_to "Creatures", creatures_path %></li>
@@ -34,11 +34,12 @@
 							</ul>
 						</li>
 					<% end %>
-					<li><form class="navbar-search pull-left">
+					<li><form class="navbar-search pull-left" method='GET' action='/creatures'>
 						<input type="text" class="search-query" placeholder="Search">
 					</form></li>
 				</ul>
 			</nav>
 		</div>
 	</div>
-</header>
+	</div>
+</div>
