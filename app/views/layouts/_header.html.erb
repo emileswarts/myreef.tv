@@ -37,6 +37,7 @@
 					<li>
 					<%= form_tag(creatures_path, :class => "navbar-search pull-left", :method => 'get') do %>
 							<%= text_field_tag :q, params[:q], :placeholder => "Search", :class => "search-query"  %>
+							<%= submit_tag "Search", :name => nil, :class => "btn btn-primary"  %>
 					<% end %>
 					</li>
 				</ul>
