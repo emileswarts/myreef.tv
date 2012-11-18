@@ -5,7 +5,6 @@ class Creature < ActiveRecord::Base
   has_attached_file :photo, :styles => { :medium => "800x800>", :thumb => "200x200#", :mini_thumb => "100x100"}
 
   acts_as_taggable
-  acts_as_taggable_on :photo
 
   validates :photo, presence: true
 

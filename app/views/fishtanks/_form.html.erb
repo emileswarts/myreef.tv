@@ -28,6 +28,8 @@
 
 	<%= form.label :photo %>
 	<%= form.file_field :photo %><br />
+	<%= image_tag @fishtank.photo.url(:thumb) %>
+	<div style="clear:both"></div>
 
 	<%= form.submit :submit, :class => 'btn-large btn-primary' %>
 

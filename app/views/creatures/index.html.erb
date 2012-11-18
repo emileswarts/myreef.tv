@@ -1,29 +1,11 @@
-<h1>Listing creatures</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date aquired</th>
-    <th>Rip date</th>
-    <th>Scientific name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Creatures</h1>
 
 <% @creatures.each do |creature| %>
-  <tr>
-    <td><%= creature.name %></td>
-    <td><%= creature.date_aquired %></td>
-    <td><%= creature.rip_date %></td>
-    <td><%= creature.scientific_name %></td>
-    <td><%= link_to 'Show', creature %></td>
-    <td><%= link_to 'Edit', edit_fishtank_creature_path(creature) %></td>
-    <td><%= link_to 'Destroy', creature, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+		<%= image_tag creature.photo.url(:thumb)  %>
+
+    <%# <%= link_to 'Show', creature %1> %>
+    <%# <%= link_to 'Edit', edit_fishtank_creature_path(creature) %1> %>
+    <%# <%= link_to 'Destroy', creature, confirm: 'Are you sure?', method: :delete %1> %>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Creature', new_creature_path %>
+<%# <%= link_to 'New Creature', new_creature_path %1> %>

@@ -1,4 +1,5 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
 	<aside class="span4">
 		<section>
@@ -9,9 +10,90 @@
 		</section>
 	</aside>
 
-	<%= debug @creatures  %>
 	<% if @fishtank_count == 0 %>
-		You have no fishtanks! 
-		<%= link_to "Add one", new_fishtank_path(current_user) %>
+		<center><h2>You have no fishtanks!</h2>
+			<%= link_to "Add one", new_fishtank_path(current_user), :class => "btn-large btn btn-primary" %></center>
+	<% else %>
+		<h2>Fishtanks(<%= @fishtank_count %>)</h2>
+<ul class='fishtanks'>
+	<% @fishtanks.each do |fishtank| %>
+<div class="row">
+	<div class="span8">
+		<div class="row">
+			<div class="span2">
+				<%= link_to (image_tag fishtank.photo.url(:thumb), 
+							 :alt => fishtank.title, 
+							 :class => "list_image"), 
+							 { 
+								:action => "index", 
+								:controller => "creatures", 
+								:fishtank_id => fishtank.id  
+				}, :class => "thumbnail" %>
+			</div>
+			<div class="span6">
+				<h4><strong><a href="#"><%= fishtank.title %></a></strong></h4>
+				<p>
+				<%= fishtank.description %>
+				</p>
+				<p>
+				<%= link_to "Add creatures", new_fishtank_creature_path(fishtank), :class => 'btn' %>
+				<%= link_to "Edit", edit_fishtank_path(fishtank), :class => 'btn' %>
+				<%= link_to "delete", fishtank, method: :delete, :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+			</div>
+			<div class='span8' id="fishtank_creature_list">
+				<ul>
+					<% fishtank.creatures.each do |creature|  %>
+						<%= render partial: 'shared/creature_list',  :locals => { :creature => creature }  %>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<p></p>
+				<p>
+				<i class="icon-user"></i> by <a href="#"><%= current_user.name %></a>
+				| <i class="icon-calendar"></i> <%= fishtank.date_aquired.strftime('%d %B %Y') %>
+				| <i class="icon-comment"></i> <a id='toggle_fishtank_creature_list' href="#">Creatures <%= fishtank.creatures.count %> </a>
+				| <i class="icon-share"></i> Capacity: <a href="#"><%= fishtank.capacity %> (L)</a>
+				| <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
+				<a href="#"><span class="label label-info">Bootstrap</span></a>
+				<a href="#"><span class="label label-info">UI</span></a>
+				<a href="#"><span class="label label-info">growth</span></a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+     <%# <div class="span1"> %>
+    <%# <a href="#" class="btn btn-primary"> %>
+    <%# <i class="icon-pencil icon-white"></i> %>
+    <%# <span><strong>Write</strong></span> %>
+    <%# </a> %>
+    <%# </div> %>
+    <%# <div class="span1"> %>
+    <%# <a href="#" class="btn btn-primary"> %>
+    <%# <i class="icon-eye-open icon-white"></i> %>
+    <%# <span><strong>View</strong></span> %>
+    <%# </a> %>
+    <%# </div> %>
+    <%# <div class="span1"> %>
+    <%# <a href="#" class="btn btn-primary"> %>
+    <%# <i class="icon-edit icon-white"></i> %>
+    <%# <span><strong>Edit</strong></span> %>
+    <%# </a> %>
+    <%# </div> %>
+    <%# <div class="span1"> %>
+    <%# <a href="#" class="btn btn-primary"> %>
+    <%# <i class="icon-trash icon-white"></i> %>
+    <%# <span><strong>Delete</strong></span> %>
+    <%# </a> %>
+    <%# </div> %>
+	<% end %>
+
+</ul>
+		<h2>Creatures</h2>
+
 	<% end %>
 </div>

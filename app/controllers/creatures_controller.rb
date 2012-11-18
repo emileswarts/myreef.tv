@@ -4,14 +4,14 @@ class CreaturesController < ApplicationController
 
   def index
 
-    @creatures = Creature.all
-
 	if params[:tag] 
 		@creatures = Creature.tagged_with(params[:tag]).paginate(page: params[:page])
-	else
+	elsif params[:fishtank_id]
 		@creatures = Creature.where(:fishtank_id => params[:fishtank_id]).paginate(page: params[:page])
+	else
+			@creatures = Creature.find(:all)
 	end
-
+		 @display_tag_cloud = true
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @creatures }

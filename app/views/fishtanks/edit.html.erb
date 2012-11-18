@@ -1,3 +1,16 @@
 <%= provide(:title, "Fish tank") %>
 
-<%= render 'form' %>
+<div class="row">
+	<aside class="span4">
+		<section>
+		<h1>
+			<%= link_to (gravatar_for current_user, 100), current_user %>
+			<%= current_user.name %>
+		</h1>
+		</section>
+	</aside>
+	<div class="span4">
+	<%= render 'form' %>
+	</div>
+</div>
+<div style="clear:both"></div>

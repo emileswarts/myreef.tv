@@ -15,7 +15,7 @@ class FishtanksController < ApplicationController
 		@fishtank = Fishtank.find(params[:id])
 		@fishtank.destroy
 		flash[:success] = "Fish tank deleted"
-		redirect_to @fishtank
+		redirect_to current_user
 	end
 
 	def create
@@ -23,10 +23,10 @@ class FishtanksController < ApplicationController
 
 		if @fishtank.save
 			flash[:success] = "Success"
-			redirect_to @fishtank
+			redirect_to current_user
 		else
 			flash[:error] = "Error"
-			redirect_to @fishtank
+			redirect_to current_user
 		end
 	end
 
@@ -38,7 +38,7 @@ class FishtanksController < ApplicationController
 	  @fishtank = Fishtank.find(params[:id])
 		if @fishtank.update_attributes(params[:fishtank])
 			flash[:success] = "Fish tank updated"
-			redirect_to @fishtank
+			redirect_to current_user
 		else
 			render 'edit'
 		end
