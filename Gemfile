@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', "3.0.1"
 gem 'faker', "1.0.1"
 gem 'will_paginate', "3.0.3"
 gem 'bootstrap-will_paginate', "0.0.6"
+gem 'jquery-rails'
 gem 'paperclip', "~> 3.0"
 gem 'acts-as-taggable-on', "~> 2.3.1"
 gem 'bootstrap-datepicker-rails'
@@ -33,7 +34,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.4'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.2.3'
-  gem 'jquery-rails'
 end
 
 group :test do
