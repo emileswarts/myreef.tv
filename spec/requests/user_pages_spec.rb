@@ -102,6 +102,7 @@ describe "UserPages" do
 
 	describe "profile page do" do
 		let(:user) { FactoryGirl.create(:user)}
+    let!(:fishtank) { FactoryGirl.create(:fishtank, user: user, title: "Foo") }
 
 		before { visit user_path(user) }
 

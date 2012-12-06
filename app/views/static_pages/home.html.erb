@@ -17,3 +17,35 @@
 <% @creatures.each do |creature| %>
 		<%= link_to (image_tag creature.photo.url(:mini_thumb)), creature_path(creature)  %>
 <% end %>
+
+<div style='clear:both'><br /></div>
+<h3><%= link_to "Users", creatures_path %></h3>
+<% @users.each do |user| %>
+			<%= link_to (gravatar_for user, 100) %>
+<% end %>
+
+<div style='clear:both'><br /></div>
+<h3><%= link_to "Fishtanks", creatures_path %></h3>
+<% @fishtanks.each do |fishtank| %>
+		<%= image_tag fishtank.photo.url(:thumb) %>
+<% end %>
+
+		<div class="timeline" style='background:#666;padding-top:10px'>
+			<ul class="events">
+				<li style="width: 42.48%; left: 57.2%;">Mandarin</li>
+				<li style="width: 56.68%; left: 43%;">Photography</li>
+				<li style="width: 71.3%; left: 28.4%;">Object Oriented Programming</li>
+				<li style="width: 85.5%; left: 14.2%;">Web Development</li>
+				<li style="width: 42.75%; left: 0;">3D Modeling and Rendering</li>
+				<li style="width: 99.5%; left: 0;">Drawing &amp; Illustration</li>
+			</ul> <!-- end .events -->
+
+			<ul class="intervals">
+				<li class="first">2003</li>
+				<li>2004</li>
+				<li>2005</li>
+				<li>2006</li>
+				<li>2007</li>
+				<li class="last">2008</li>
+			</ul> <!-- end .intervals -->
+		</div> <!-- end .timeline -->

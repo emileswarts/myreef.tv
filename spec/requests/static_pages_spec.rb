@@ -7,9 +7,7 @@ subject {page}
 
 		before{visit root_path}
 
-		it { should have_selector('h1', :text => 'Myreef.tv') }
-		it { should have_selector('h1', :text => 'Myreef.tv') }
-		it { should have_selector('h1', :text => 'Myreef.tv') }
+		it { should have_selector('h1', :text => 'reeftank.me') }
 		it { should_not have_selector('h1', :text => '| Home') }
 		it { should have_selector('title', :text => 'Myreef.tv') }
 	end
