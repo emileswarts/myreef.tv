@@ -49,4 +49,5 @@ end
 
 group :production do
   gem 'thin'
+  gem 'aws-sdk'
 end
