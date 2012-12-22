@@ -33,6 +33,11 @@
 
 	<%= image_tag @creature.photo.url(:thumb) %><br />
 
+		<div style='clear:both'><br /></div>
+    <%= f.label :timeline_featured %><br />
+		<%= f.check_box :timeline_featured %>
+		<div style='clear:both'><br /></div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
