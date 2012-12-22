@@ -30,7 +30,8 @@
 		<%= image_tag fishtank.photo.url(:thumb) %>
 <% end %>
 
-		<div class="timeline" style='background:#666;padding-top:10px'>
+
+		<div class="timeline">
 			<ul class="events">
 				<li style="width: 42.48%; left: 57.2%;">Mandarin</li>
 				<li style="width: 56.68%; left: 43%;">Photography</li>
@@ -41,11 +42,10 @@
 			</ul> <!-- end .events -->
 
 			<ul class="intervals">
-				<li class="first">2003</li>
-				<li>2004</li>
-				<li>2005</li>
-				<li>2006</li>
-				<li>2007</li>
-				<li class="last">2008</li>
+					<%= @year_range_count %>
+				<% @year_range.each_with_index do |year, index| %>
+						<% css_class = 0 == index ? "class='first'" : "" %>
+						<li style='width:<%= @year_range_count %>%' <%= css_class %>><%= year %></li>
+				<% end %>
 			</ul> <!-- end .intervals -->
 		</div> <!-- end .timeline -->

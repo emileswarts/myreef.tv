@@ -149,6 +149,7 @@ ul.intervals {
 	list-style-type: none;
 	padding: 0;
 	display: block;
+	margin-bottom: 20px;
 }
 
 /* The width depends on the number of intervals. For example 100 / 7 = 14.29% -- then subtract a little bit for room for the borders */
@@ -161,7 +162,7 @@ ul.intervals li {
 	margin: 0;
 	padding: 15px 0;
 	text-align: center;
-	width: 14.17%;
+	width: 48%;
 }
 
 ul.intervals li.first {

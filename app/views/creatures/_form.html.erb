@@ -1,13 +1,4 @@
  <% content_for :custom_scripts do %>
-  <script type="text/javascript">
-    $(function() {
-			$('.datepicker').datepicker({
-					"format": "yyyy-mm-dd",
-					"autoclose": true,
-					"todayBtn": true
-				});
-    });
-  </script>
 <% end %>
 
 <%= form_for @creature, :html => { :multipart => true } do |f| %>
