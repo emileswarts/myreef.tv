@@ -34,7 +34,13 @@
 		<div class="timeline">
 			<ul class="events">
 				<% @timeline_creatures.each do |creature| %>
-						<li style="width: 23.48%; left: 43%">
+
+						<% width = creature.find_css_width(creature, @earliest_timeline_creature_timestamp) %>
+						<% left = creature.find_css_left(creature, @earliest_timeline_creature_timestamp) %>
+
+						<% style = "width: #{width}%; left: #{left}px;" %>
+
+						<li style="<%= style %>">
 								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 50px' %><%= creature.name %>
 						</li>
 				<% end %>

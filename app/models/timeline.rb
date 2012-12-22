@@ -6,7 +6,7 @@ class Timeline
 		#return an array as follows
 		#[creature_name, 'date_aquired', 'date_died']
 		# fishtank[fishtank_id] = [['blenny',2011-11-08, 2012-12-17], 'mandarin',2011-11-08, 2012-12-17]]
-		def getUserTimelines(user)
+		def getTimelineYearRange(user)
 
 				fishtanks_ids = user.fishtanks.collect { |a| a.id}
 

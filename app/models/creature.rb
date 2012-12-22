@@ -21,4 +21,24 @@ class Creature < ActiveRecord::Base
 						find(:all)
 				end
 		end
+
+		def find_css_width(creature, earliest_start)
+
+				creature_date_aquired_timestamp = creature.date_aquired.to_time.to_i
+
+				today_timestamp = Date.today.to_time.to_f
+
+				creature_difference = today_timestamp - creature_date_aquired_timestamp 
+
+				timeline_timestamp = today_timestamp - earliest_start 
+
+				difference = (creature_difference / timeline_timestamp) * 100
+
+				# "#{today_timestamp} - #{earliest_start}"
+				 difference
+
+		end
+
+		def find_css_left(creature, earliest_start)
+		end
 end
