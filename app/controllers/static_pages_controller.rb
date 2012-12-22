@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
 			@users = User.find(:all)
-			@creatures = Creature.find(:all)
+			@creatures = Creature.where("timeline_featured = ?", 1)
 			@fishtanks = Fishtank.find(:all)
 			@user = current_user
 
