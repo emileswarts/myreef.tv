@@ -3,34 +3,19 @@
 <div class="center hero-unit">
 		<div id='hero-content'>
 		<h1>reeftank.me</h1><br />
-		<h2>Track your reef creatures</h2><br />
+		<h2>Tracking creatures in your tank</h2><br />
 
 		<%= link_to "Signup to reeftank.me", signup_path, :class => 'btn btn-large btn-primary' %>
 		</div>
 </div>
-<h1>Keep track of your reef</h1>
+<h1>A catalogue of my marine tank.</h1>
 <h2>
-		As you add new creatures to your reef aquarium, you can add them here which will serve as a way to track details about them that is usually forgotten. 
-		You can tag creatures with data, which will be used to help others in the future.  You can also earn stats by identifying creatures by their scientific name or any issues that another user might have.
+	I love coding, and I love reefkeeping so it was only natural that I create a website for my fishtank.
+	You can browse the creatures that I have in my fishtank, and see the lifespan of the stock in my tank.
 </h2>
-<h3><%= link_to "Latest creatures", creatures_path %></h3>
-<% @creatures.each do |creature| %>
-		<%= link_to (image_tag creature.photo.url(:mini_thumb)), creature_path(creature)  %>
-<% end %>
-
-<div style='clear:both'><br /></div>
-<h3><%= link_to "Users", creatures_path %></h3>
-<% @users.each do |user| %>
-			<%= link_to (gravatar_for user, 100) %>
-<% end %>
-
-<div style='clear:both'><br /></div>
-<h3><%= link_to "Fishtanks", creatures_path %></h3>
-<% @fishtanks.each do |fishtank| %>
-		<%= image_tag fishtank.photo.url(:thumb) %>
-<% end %>
 
 
+	<h4>Timeline for </h4>
 		<div class="timeline">
 			<ul class="events">
 				<% @timeline_creatures.each do |creature| %>
@@ -59,3 +44,25 @@
 				<% end %>
 			</ul> <!-- end .intervals -->
 		</div> <!-- end .timeline -->
+
+		<div style='clear:both;'><br /><br /></div>
+<h3><%= link_to "Latest creatures", creatures_path %></h3>
+<% @creatures.each do |creature| %>
+	<div style='margin:10px;float:left'>
+		<%= link_to (image_tag creature.photo.url(:thumb)), creature_path(creature)  %>
+	</div>
+<% end %>
+
+<div style='clear:both'><br /></div>
+<h3><%= link_to "Users", creatures_path %></h3>
+<% @users.each do |user| %>
+			<%= link_to (gravatar_for user, 100) %>
+<% end %>
+
+<div style='clear:both'><br /></div>
+<h3><%= link_to "Fishtanks", creatures_path %></h3>
+<% @fishtanks.each do |fishtank| %>
+		<%= image_tag fishtank.photo.url(:thumb) %>
+<% end %>
+
+
