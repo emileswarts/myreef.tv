@@ -32,7 +32,8 @@ class Creature < ActiveRecord::Base
 
 				timeline_timestamp = today_timestamp - earliest_start 
 
-				difference = (creature_difference / timeline_timestamp) * 100
+				# remove 8 for padding
+				difference = ((creature_difference / timeline_timestamp) * 100) - 8
 
 				# "#{today_timestamp} - #{earliest_start}"
 				 difference
@@ -40,5 +41,18 @@ class Creature < ActiveRecord::Base
 		end
 
 		def find_css_left(creature, earliest_start)
+				creature_date_aquired_timestamp = creature.date_aquired.to_time.to_i
+
+				today_timestamp = Date.today.to_time.to_f
+
+				creature_difference = today_timestamp - creature_date_aquired_timestamp 
+
+				timeline_timestamp = today_timestamp - earliest_start 
+
+				difference = (creature_difference / timeline_timestamp) * 100
+				difference = (100 - (creature_difference / timeline_timestamp) * 100) + 7
+
+				# "#{today_timestamp} - #{earliest_start}"
+				 difference
 		end
 end

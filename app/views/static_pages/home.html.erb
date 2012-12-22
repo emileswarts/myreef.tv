@@ -38,7 +38,7 @@
 						<% width = creature.find_css_width(creature, @earliest_timeline_creature_timestamp) %>
 						<% left = creature.find_css_left(creature, @earliest_timeline_creature_timestamp) %>
 
-						<% style = "width: #{width}%; left: #{left}px;" %>
+						<% style = "width: #{width}%; left: #{left}%;" %>
 
 						<li style="<%= style %>">
 								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 50px' %><%= creature.name %>
@@ -53,7 +53,6 @@
 		</ul> <!-- end .events -->
 
 			<ul class="intervals">
-					<%= @year_range_count %>
 				<% @year_range.each_with_index do |year, index| %>
 						<% css_class = 0 == index ? "class='first'" : "" %>
 						<li style='width:<%= @year_range_count %>%' <%= css_class %>><%= year %></li>

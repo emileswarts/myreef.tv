@@ -122,12 +122,13 @@ ul.events {
 	list-style-type: none;
 	margin: 0;
 	padding: 0 0 20px 0;
+	overflow: auto;
 }
 
 ul.events li {
-	-webkit-border-radius: 11px;
-	-moz-border-radius: 11px;
-	border-radius: 11px;
+	-webkit-border-radius: 21px;
+	-moz-border-radius: 21px;
+	border-radius: 21px;
 	background: #eee;
 	border: 1px solid #ddd;
 	color: #707070;
@@ -136,7 +137,7 @@ ul.events li {
 	margin-bottom: 6px;
 	padding: 0 0;
 	position: relative;
-	text-align: center;
+	text-align: left;
 }
 
 ul.events li em {
@@ -158,6 +159,7 @@ ul.intervals {
 	padding: 0;
 	display: block;
 	margin-bottom: 20px;
+	width:100%;
 }
 
 /* The width depends on the number of intervals. For example 100 / 7 = 14.29% -- then subtract a little bit for room for the borders */
