@@ -134,7 +134,7 @@ ul.events li {
 	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 6px;
-	padding: 3px 0;
+	padding: 0 0;
 	position: relative;
 	text-align: center;
 }
@@ -143,6 +143,14 @@ ul.events li em {
 	color: #aaa;
 	font-weight: normal;
 	font-size: 0.9em;
+}
+
+ul.events li img{
+	text-align: left !important;
+	margin-right: 10px;
+	left: 0;
+	position: relative;
+
 }
 
 ul.intervals {
@@ -165,6 +173,8 @@ ul.intervals li {
 	width: 48%;
 }
 
+
 ul.intervals li.first {
 	border-left: 1px solid #ccc;
 }
+

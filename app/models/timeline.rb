@@ -8,24 +8,24 @@ class Timeline
 		# fishtank[fishtank_id] = [['blenny',2011-11-08, 2012-12-17], 'mandarin',2011-11-08, 2012-12-17]]
 		def getUserTimelines(user)
 
-				width = 940
-
 				fishtanks_ids = user.fishtanks.collect { |a| a.id}
 
 				creatures = Creature.find_all_by_fishtank_id(fishtanks_ids)
 
-				start_year = getStartDate(creatures).strftime('%Y')
-				end_year = Date.today.strftime('%Y') 
-				timeline_duration = (start_year..end_year)
-				# range = [start_year, end_year]
+				start_date = getStartDate(creatures)
+				start_year = start_date.strftime('%Y')
 
-				# range
+				end_date = Date.today
+				end_year = end_date.strftime('%Y') 
+
+				@seconds_duration = start_date.to_datetime - end_date.to_datetime
+
+				timeline_duration = (start_year..end_year)
 
 				timeline_duration
-				 # range
+		end
 
-				# fishtank_creatures
-
+		def getCreatureDurationPercentage()
 		end
 
 		def getStartDate(creatures)

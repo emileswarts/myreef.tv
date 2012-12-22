@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
 
 			creature_timeline = Timeline.new
 			@year_range = creature_timeline.getUserTimelines(@featured_timeline_user) 
+
+			#How long should each year <li> in the timeline be.  eg 2 will be 48% each (-2 for padding)
 			@year_range_count = 100 / @year_range.count - 2;
 
   end

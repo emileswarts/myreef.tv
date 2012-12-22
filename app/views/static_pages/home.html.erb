@@ -33,13 +33,18 @@
 
 		<div class="timeline">
 			<ul class="events">
-				<li style="width: 42.48%; left: 57.2%;">Mandarin</li>
+				<% @creatures.each do |creature| %>
+						<li style="width: 23.48%; left: 43%">
+								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 50px' %><%= creature.name %>
+						</li>
+				<% end %>
+				<!--<li style="width: 42.48%; left: 57.2%;">Mandarin</li>
 				<li style="width: 56.68%; left: 43%;">Photography</li>
 				<li style="width: 71.3%; left: 28.4%;">Object Oriented Programming</li>
 				<li style="width: 85.5%; left: 14.2%;">Web Development</li>
 				<li style="width: 42.75%; left: 0;">3D Modeling and Rendering</li>
-				<li style="width: 99.5%; left: 0;">Drawing &amp; Illustration</li>
-			</ul> <!-- end .events -->
+				<li style="width: 99.5%; left: 0;">Drawing &amp; Illustration</li>-->
+		</ul> <!-- end .events -->
 
 			<ul class="intervals">
 					<%= @year_range_count %>
