@@ -33,7 +33,7 @@
 
 		<div class="timeline">
 			<ul class="events">
-				<% @creatures.each do |creature| %>
+				<% @timeline_creatures.each do |creature| %>
 						<li style="width: 23.48%; left: 43%">
 								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 50px' %><%= creature.name %>
 						</li>
