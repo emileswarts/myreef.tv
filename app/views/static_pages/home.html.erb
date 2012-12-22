@@ -3,19 +3,29 @@
 <div class="center hero-unit">
 		<div id='hero-content'>
 		<h1>reeftank.me</h1><br />
-		<h2>Tracking creatures in your tank</h2><br />
+		<h2>Tracking progress in my reef</h2><br />
 
-		<%= link_to "Signup to reeftank.me", signup_path, :class => 'btn btn-large btn-primary' %>
+		<%= link_to "View Gallery", creatures_path, :class => 'btn btn-large btn-primary' %>
 		</div>
 </div>
-<h1>A catalogue of my marine tank.</h1>
+<h1>A catalogue of my marine tank</h1>
 <h2>
 	I love coding, and I love reefkeeping so it was only natural that I create a website for my fishtank.
-	You can browse the creatures that I have in my fishtank, and see the lifespan of the stock in my tank.
+	You can browse photos of all the livestock, and see the lifespan on the timeline below.
 </h2>
 
+	<ul class="homepage_gallery">
+<% @creatures.each_with_index do |creature, index| %>
 
-	<h4>Timeline for </h4>
+		<% css_class = index % 4 == 3 ? "last" : "" %>
+
+		<li class="<%= css_class %>"><%= link_to (image_tag creature.photo.url(:thumb)), creature.photo.url(:medium), :rel => "lightbox"  %></li>
+<% end %>
+	</ul>
+
+		<div style='clear:both;'><br /><br /></div>
+		<center><h3>Timeline</h3></center>
+		<h2 style='font-size:1.5em'>Below is a timeline of livestock to my marine tank.  It indicates when I bought them during the year, and how long I have had them for.  This kind of information can help me identify which species do the best in my nano aquarium, and pinpoint unusual events.</h2>
 		<div class="timeline">
 			<ul class="events">
 				<% @timeline_creatures.each do |creature| %>
@@ -26,7 +36,7 @@
 						<% style = "width: #{width}%; left: #{left}%;" %>
 
 						<li style="<%= style %>">
-								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 50px' %><%= creature.name %>
+								<%= image_tag creature.photo.url(:thumb), class: 'img-circle', style: 'width: 2.4em' %><%= creature.name %>
 						</li>
 				<% end %>
 				<!--<li style="width: 42.48%; left: 57.2%;">Mandarin</li>
@@ -45,24 +55,37 @@
 			</ul> <!-- end .intervals -->
 		</div> <!-- end .timeline -->
 
-		<div style='clear:both;'><br /><br /></div>
-<h3><%= link_to "Latest creatures", creatures_path %></h3>
-<% @creatures.each do |creature| %>
-	<div style='margin:10px;float:left'>
-		<%= link_to (image_tag creature.photo.url(:thumb)), creature_path(creature)  %>
+<div style='clear:both'><br /></div>
+<h3>Fishtank</h3>
+<% @fishtanks.each do |fishtank| %>
+<div class="row">
+	<div class="span12">
+		<div class="row">
+			<div class="span2">
+				<%= link_to (image_tag fishtank.photo.url(:thumb), 
+							 :alt => fishtank.title, 
+							 :class => "list_image"), 
+							 { 
+					:action => "index", 
+					:controller => "creatures", 
+					:fishtank_id => fishtank.id  
+				}, :class => "thumbnail" %>
+			</div>
+			<div class="span10">
+				<h4><strong><a href="#"><%= fishtank.title %></a></strong></h4>
+				<p>
+				<%= fishtank.description %>
+				</p>
+				<p>
+			</div>
+		</div>
 	</div>
+</div>
 <% end %>
 
 <div style='clear:both'><br /></div>
-<h3><%= link_to "Users", creatures_path %></h3>
+<h3>Users</h3>
 <% @users.each do |user| %>
 			<%= link_to (gravatar_for user, 100) %>
 <% end %>
-
 <div style='clear:both'><br /></div>
-<h3><%= link_to "Fishtanks", creatures_path %></h3>
-<% @fishtanks.each do |fishtank| %>
-		<%= image_tag fishtank.photo.url(:thumb) %>
-<% end %>
-
-
