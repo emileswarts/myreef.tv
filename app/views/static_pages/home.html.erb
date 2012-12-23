@@ -35,8 +35,8 @@
 			<ul class="events">
 				<% @timeline_creatures.each do |creature| %>
 
-						<% width = creature.find_css_width(creature, @earliest_timeline_creature_timestamp) %>
-						<% left = creature.find_css_left(creature, @earliest_timeline_creature_timestamp) %>
+						<% width = creature.find_css_width(creature, @earliest_timeline_creature_timestamp).round %>
+						<% left = creature.find_css_left(creature, @earliest_timeline_creature_timestamp).round %>
 
 						<% style = "width: #{width}%; left: #{left}%;" %>
 
