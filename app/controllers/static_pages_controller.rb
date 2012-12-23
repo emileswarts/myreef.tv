@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
 			@users = User.find(:all)
-			@creatures = Creature.find(:all, :limit => "4")
+			@creatures = Creature.find(:all, :limit => "4", :order => "random()")
 			@fishtanks = Fishtank.find(:all)
 			@user = current_user
 

@@ -22,6 +22,7 @@
 		<li class="<%= css_class %>"><%= link_to (image_tag creature.photo.url(:thumb)), creature.photo.url(:medium), :rel => "lightbox"  %></li>
 <% end %>
 	</ul>
+	<h3><%= link_to 'more', creatures_path, :class => 'more_link' %></h3>
 
 		<div style='clear:both;'><br /><br /></div>
 		<center><h3>Timeline</h3></center>
@@ -86,6 +87,6 @@
 <div style='clear:both'><br /></div>
 <h3>Users</h3>
 <% @users.each do |user| %>
-			<%= link_to (gravatar_for user, 100) %>
+			<%= gravatar_for user, 100 %>
 <% end %>
 <div style='clear:both'><br /></div>

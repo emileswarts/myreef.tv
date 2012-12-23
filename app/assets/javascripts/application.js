@@ -11,7 +11,15 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require bootstrap-datepicker
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-datepicker
+
+$(function() {
+	$('.datepicker').datepicker({
+		"format": "yyyy-mm-dd",
+	"autoclose": true,
+	"todayBtn": true
+	});
+});

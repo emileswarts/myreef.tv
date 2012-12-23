@@ -1,6 +1,3 @@
- <% content_for :custom_scripts do %>
-<% end %>
-
 <%= form_for @creature, :html => { :multipart => true } do |f| %>
   <% if @creature.errors.any? %>
     <div id="error_explanation">
