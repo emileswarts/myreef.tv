@@ -25,9 +25,6 @@ class Timeline
 				timeline_duration
 		end
 
-		def getCreatureDurationPercentage()
-		end
-
 		def getStartDate(creatures)
 
 				creature_dates = []

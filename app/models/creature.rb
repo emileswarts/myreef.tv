@@ -26,16 +26,21 @@ class Creature < ActiveRecord::Base
 
 				creature_date_aquired_timestamp = creature.date_aquired.to_time.to_i
 
-				today_timestamp = Date.today.to_time.to_f
+				today_timestamp = Date.today.to_time.to_f 
 
-				creature_difference = today_timestamp - creature_date_aquired_timestamp 
+				 if creature.rip_date != nil
+						 creature_end_date = creature.rip_date.to_time.to_i
+				 else
+						creature_end_date = today_timestamp
+				 end
+
+				creature_difference = creature_end_date - creature_date_aquired_timestamp 
 
 				timeline_timestamp = today_timestamp - earliest_start 
 
 				# remove 8 for padding
 				difference = ((creature_difference / timeline_timestamp) * 100) - 8
 
-				# "#{today_timestamp} - #{earliest_start}"
 				 difference
 
 		end
