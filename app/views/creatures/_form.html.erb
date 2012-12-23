@@ -11,11 +11,16 @@
     </div>
   <% end %>
 
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+	<div class="span4">
+	<%= image_tag @creature.photo.url(:thumb) %><br />
+	</div>
 
-    <%= f.label :photo %><br />
+	<div class="span4">
+    <%= f.label :photo, "Image" %><br />
     <%= f.file_field :photo %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
 	<%= f.label :date_aquired, "Date aquired" %>
 	<%= f.text_field :date_aquired, :class => "datepicker"  %><br />
@@ -26,12 +31,19 @@
     <%= f.label :scientific_name %><br />
     <%= f.text_field :scientific_name %>
 
+    <%= f.label :diet, "Diet" %><br />
+		<%= f.text_area :diet, :rows => 4 %>
+
+	<%= f.label :temperament, "Temperament" %><br />
+	<select name="creature[temperament]">
+ <%= options_for_select([['Aggressive', 1], ['Semi-aggresive', 2], ['Peaceful', 3]], @creature.temperament) %>
+	</select>
+
 	<%= f.hidden_field :fishtank_id, :value => params[:fishtank_id] %><br />
 
 	<%= f.label :tag_list %><br />
 	<%= f.text_field :tag_list %><br />
 
-	<%= image_tag @creature.photo.url(:thumb) %><br />
 
 		<div style='clear:both'><br /></div>
     <%= f.label :timeline_featured %><br />
