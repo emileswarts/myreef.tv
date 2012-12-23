@@ -184,8 +184,18 @@ ul.intervals li.first {
 		padding:0 !important;
 	li{ 
 		float:left;
-		margin:14px;
+		margin:24px;
 		list-style-type:none;
+		&:first-child {
+			margin-left:-30px !important;
+			padding-left:0 !important;
+
+		}
+		&:last-child {
+			margin-right:0 !important;
+			padding-right:0 !important;
+
+		}
 	}
 
 }

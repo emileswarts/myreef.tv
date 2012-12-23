@@ -15,12 +15,9 @@
 </h2>
 
 	<ul class="homepage_gallery">
-<% @creatures.each_with_index do |creature, index| %>
-
-		<% css_class = index % 4 == 3 ? "last" : "" %>
-
-		<li class="<%= css_class %>"><%= link_to (image_tag creature.photo.url(:thumb)), creature.photo.url(:medium), :rel => "lightbox"  %></li>
-<% end %>
+		<% @creatures.each do |creature| %>
+			<li><%= link_to (image_tag creature.photo.url(:thumb)), creature.photo.url(:medium), :rel => "lightbox"  %></li>
+		<% end %>
 	</ul>
 	<h3><%= link_to 'more', creatures_path, :class => 'more_link' %></h3>
 
@@ -28,6 +25,13 @@
 		<center><h3>Timeline</h3></center>
 		<h2 style='font-size:1.5em'>Below is a timeline of livestock to my marine tank.  It indicates when I bought them during the year, and how long I have had them for.  This kind of information can help me identify which species do the best in my nano aquarium, and pinpoint unusual events.</h2>
 		<div class="timeline">
+			<ul class="intervals">
+				<% @year_range.each_with_index do |year, index| %>
+						<% css_class = 0 == index ? "class='first'" : "" %>
+						<li style='width:<%= @year_range_count %>%' <%= css_class %>><%= year %></li>
+				<% end %>
+			</ul> <!-- end .intervals -->
+			<div style='clear:both'></div>
 			<ul class="events">
 				<% @timeline_creatures.each do |creature| %>
 
