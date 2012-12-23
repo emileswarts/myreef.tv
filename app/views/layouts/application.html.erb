@@ -30,7 +30,7 @@
 								 <% if @users %>
 										 <h3>Reefkeepers:</h3><br />
 											<% @users.each do |user| %>
-													<%= link_to (gravatar_for user, 50) %>
+													<%= gravatar_for user, 50 %>
 											<% end %>
 								 <% end %>
 
