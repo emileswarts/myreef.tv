@@ -19,4 +19,7 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+	def not_found
+	end
 end
