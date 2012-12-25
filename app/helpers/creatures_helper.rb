@@ -6,4 +6,10 @@ module CreaturesHelper
 		# 	"here"
 		# end
 	end
+
+	def temperament_name(index)
+		temperaments = ['Aggressive', 'Semi-aggresive', 'Peaceful']
+		index = index.to_i - 1
+		temperaments[index]
+	end
 end

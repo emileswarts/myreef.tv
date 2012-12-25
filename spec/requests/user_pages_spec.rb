@@ -12,6 +12,14 @@ describe "UserPages" do
 		it { should have_selector("title", text: 'Sign up') }
 	end
 
+	describe "notfound" do
+			before do
+					visit '/asroitensraie'
+
+					it { should have_selector('h1', text: '404 Not found')}
+			end
+	end
+
 	describe "index" do
 
 		let(:user) { FactoryGirl.create(:user) }

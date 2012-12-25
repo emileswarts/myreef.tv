@@ -65,12 +65,15 @@ describe "Authentication" do
 	  end
 
 	  describe "as the wrong user" do
+
 		  let(:user) { FactoryGirl.create(:user) }
 		  let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+
 		  before { sign_in user }
 
 		  describe "visiting Users#edit page" do
 			  before { visit edit_user_path(wrong_user) }
+
 			  it { should_not have_selector('h1', text: 'Edit user') }
 		  end
 
